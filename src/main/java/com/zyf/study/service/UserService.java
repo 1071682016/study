@@ -1,5 +1,6 @@
 package com.zyf.study.service;
 
+import com.zyf.study.service.model.UserModel;
 import org.springframework.stereotype.Service;
 
 /**
@@ -8,5 +9,5 @@ import org.springframework.stereotype.Service;
 @Service
 public interface UserService {
     //通过用户id获取用户对象
-    void getUserById(Integer id);
+    UserModel getUserById(Integer id);
 }
