@@ -1,0 +1,16 @@
+2019-05-05 00:00:11.862  INFO 2068 --- [http-nio-9999-exec-10] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-05 00:00:11.892  INFO 2068 --- [http-nio-9999-exec-10] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-05-05 00:00:11.894 DEBUG 2068 --- [http-nio-9999-exec-10] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2019-05-05 00:00:12.080 DEBUG 2068 --- [http-nio-9999-exec-10] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2019-05-05 00:00:12.081  INFO 2068 --- [http-nio-9999-exec-10] o.s.web.servlet.DispatcherServlet        : Completed initialization in 188 ms
+2019-05-05 00:00:12.208 DEBUG 2068 --- [http-nio-9999-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/", parameters={}
+2019-05-05 00:00:12.227 DEBUG 2068 --- [http-nio-9999-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler ["classpath:/META-INF/resources/", "classpath:/resources/", "classpath:/static/", "classpath:/public/", "/"]
+2019-05-05 00:00:13.213 DEBUG 2068 --- [http-nio-9999-exec-10] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2019-05-05 00:00:13.219 DEBUG 2068 --- [http-nio-9999-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2019-05-05 00:00:13.245 DEBUG 2068 --- [http-nio-9999-exec-10] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2019-05-05 00:00:13.252 DEBUG 2068 --- [http-nio-9999-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-05-05 00:00:13.366 DEBUG 2068 --- [http-nio-9999-exec-10] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, text/html;q=0.8]
+2019-05-05 00:00:13.388 DEBUG 2068 --- [http-nio-9999-exec-10] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2019-05-05 00:00:15.062 DEBUG 2068 --- [http-nio-9999-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/favicon.ico", parameters={}
+2019-05-05 00:00:15.068 DEBUG 2068 --- [http-nio-9999-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [class path resource [META-INF/resources/], class path resource [resources/], class path resource [static/], class path resource [public/], ServletContext resource [/], class path resource []]
+2019-05-05 00:00:15.344 DEBUG 2068 --- [http-nio-9999-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
