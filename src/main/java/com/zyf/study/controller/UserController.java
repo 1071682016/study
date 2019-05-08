@@ -38,7 +38,7 @@ public class UserController extends BaseController {
         //将核心领域模型用户对象转化为可供前端使用的viewObject
         UserVO userVO = convertFromModel(userModel);
 
-        //返回通用对象
+        //返回通用对象。
         return CommonReturnType.create(userVO);
 
     }
