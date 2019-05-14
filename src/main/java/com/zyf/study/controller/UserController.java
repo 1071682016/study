@@ -63,7 +63,6 @@ public class UserController extends BaseController {
         String otpCode = String.valueOf(randomInt);
         //使用http
         httpServletRequest.getSession().setAttribute(telphone, otpCode);
-
         System.out.println(otpCode);
 
         return CommonReturnType.create(null);
