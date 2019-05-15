@@ -1,6 +1,5 @@
 package com.zyf.study.service.impl;
 
-import com.fasterxml.jackson.databind.util.BeanUtil;
 import com.zyf.study.dao.UserDOMapper;
 import com.zyf.study.dao.UserPasswordDOMapper;
 import com.zyf.study.dataobject.UserDO;
@@ -9,6 +8,8 @@ import com.zyf.study.error.BusinessException;
 import com.zyf.study.error.EmBusinessError;
 import com.zyf.study.service.UserService;
 import com.zyf.study.service.model.UserModel;
+import com.zyf.study.validator.ValidatorImpl;
+import com.zyf.study.validator.ValidatorResult;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,10 +22,13 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
-    UserDOMapper userDOMapper;
+    private UserDOMapper userDOMapper;
 
     @Autowired
-    UserPasswordDOMapper userPasswordDOMapper;
+    private UserPasswordDOMapper userPasswordDOMapper;
+
+    @Autowired
+    private ValidatorImpl validator;
 
     @Override
     public UserModel getUserById(Integer id) {
@@ -47,6 +51,12 @@ public class UserServiceImpl implements UserService {
             throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR);
 
         }
+        ValidatorResult ruselt = validator.validate(userModel);
+        if(ruselt.isHasErrors()){
+            throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR,ruselt.getErrMsg());
+
+        }
+
         //将UserModel 转成 dataObject
         UserDO userDO = convertFromModel(userModel);
         userDOMapper.insertSelective(userDO);

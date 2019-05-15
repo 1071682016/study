@@ -1,18 +1,18 @@
 package com.zyf.study.validator;
 
-import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
  * 校验器
  * Created by yxf on 2019/5/14.
  */
-public class VliadatorResult {
+public class ValidatorResult {
     //效验结果是否有误
-    private boolean hasErrors;
+    private boolean hasErrors = false;
 
     //存放错误信息
-    private Map<String, String> errorMsgMap;
+    private Map<String, String> errorMsgMap = new HashMap<>();
 
     public boolean isHasErrors() {
         return hasErrors;
