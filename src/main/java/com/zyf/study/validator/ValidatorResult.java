@@ -1,5 +1,6 @@
 package com.zyf.study.validator;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,6 +33,10 @@ public class ValidatorResult {
 
     //获取错误信息的msg方法
     public String getErrMsg() {
-        return String.join(",", (String[]) errorMsgMap.values().toArray());
+        Collection<String> values = errorMsgMap.values();
+        String[] valuesArray = new String[values.size()];
+
+        return String.join(",",errorMsgMap.values().toArray(valuesArray));
     }
 }
+

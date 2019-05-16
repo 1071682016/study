@@ -1,15 +1,11 @@
 package com.zyf.study.validator;
 
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -27,7 +23,7 @@ public class ValidatorImpl implements InitializingBean {
             result.setHasErrors(true);
             constraintViolationSet.forEach(item -> {
                 String message = item.getMessage();
-                String propertyName = item.getConstraintDescriptor().toString();
+                String propertyName = item.getPropertyPath().toString();
                 result.getErrorMsgMap().put(propertyName, message);
 
             });

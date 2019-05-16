@@ -1,7 +1,6 @@
 package com.zyf.study.service.model;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 /**
  * 定义这个model,是因为dataobject直接映射数据库的不能直接返回前端
@@ -15,7 +14,6 @@ public class UserModel {
     private String name;
 
     private Byte gender;
-
     private Integer age;
 
     @NotBlank(message = "手机号不能为空")
@@ -23,31 +21,24 @@ public class UserModel {
 
     private String registerMode;
 
-    public String getKey() {
-        return key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
 
     private String thirdPartyId;
 
-    @NotBlank(message = "密钥不能为空")
+    //@NotBlank(message = "密钥不能为空")
     private String key;
 
     @NotBlank(message = "密码不能为空")
     private String encrtpPassword;
 
     public UserModel() {
+    }
+
+    public UserModel(Integer id, Byte gender, String registerMode, String thirdPartyId, String key) {
         this.id = id;
-        this.name = name;
         this.gender = gender;
-        this.age = age;
-        this.telphone = telphone;
         this.registerMode = registerMode;
         this.thirdPartyId = thirdPartyId;
-        this.encrtpPassword = encrtpPassword;
+        this.key = key;
     }
 
     public Integer getId() {
@@ -104,6 +95,14 @@ public class UserModel {
 
     public void setThirdPartyId(String thirdPartyId) {
         this.thirdPartyId = thirdPartyId;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public String getEncrtpPassword() {

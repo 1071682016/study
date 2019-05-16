@@ -42,16 +42,10 @@ public class UserController extends BaseController {
 //        if (!StringUtils.equals(otpCode, isSessionCode)) {
 //            throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR, "短信验证码错误");
 //        }
-        //生成密钥
-        Random random = new Random();
-        int randomInt = random.nextInt(9999);
-        randomInt += 1000;
-        String key = String.valueOf(randomInt);
         UserModel userModel = new UserModel();
         userModel.setTelphone(telphone);
         userModel.setName(name);
-        userModel.setKey(key);
-        userModel.setEncrtpPassword(MD5Util.md5(password, key));//加密密码
+        userModel.setEncrtpPassword(password);//加密密码
 
         userService.register(userModel);
         return CommonReturnType.create(null);

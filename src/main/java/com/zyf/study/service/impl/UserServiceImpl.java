@@ -8,12 +8,15 @@ import com.zyf.study.error.BusinessException;
 import com.zyf.study.error.EmBusinessError;
 import com.zyf.study.service.UserService;
 import com.zyf.study.service.model.UserModel;
+import com.zyf.study.utils.MD5Util;
 import com.zyf.study.validator.ValidatorImpl;
 import com.zyf.study.validator.ValidatorResult;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Random;
 
 /**
  * user实现类
@@ -57,9 +60,20 @@ public class UserServiceImpl implements UserService {
 
         }
 
+        //生成密钥
+        Random random = new Random();
+        int randomInt = random.nextInt(9999);
+        randomInt += 1000;
+        String key = String.valueOf(randomInt);
+        userModel.setKey(key);
+        userModel.setEncrtpPassword(MD5Util.md5(userModel.getEncrtpPassword(),key));
+
+
         //将UserModel 转成 dataObject
         UserDO userDO = convertFromModel(userModel);
         userDOMapper.insertSelective(userDO);
+
+        userModel.setId(userDO.getId());
 
         UserPasswordDO userPasswordDO = converPasswordFromModel(userModel);
         userPasswordDOMapper.insertSelective(userPasswordDO);
