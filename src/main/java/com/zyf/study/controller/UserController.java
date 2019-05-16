@@ -1,6 +1,5 @@
 package com.zyf.study.controller;
 
-import com.alibaba.druid.util.StringUtils;
 import com.zyf.study.controller.viewObject.UserVO;
 import com.zyf.study.error.BusinessException;
 import com.zyf.study.error.EmBusinessError;
@@ -8,8 +7,6 @@ import com.zyf.study.response.CommonReturnType;
 import com.zyf.study.service.UserService;
 import com.zyf.study.service.model.UserModel;
 import com.zyf.study.utils.MD5Util;
-import io.netty.util.internal.StringUtil;
-import org.apache.tomcat.util.security.MD5Encoder;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

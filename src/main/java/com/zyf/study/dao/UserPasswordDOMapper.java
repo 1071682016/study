@@ -10,6 +10,7 @@ public interface UserPasswordDOMapper {
     int insertSelective(UserPasswordDO record);
 
     UserPasswordDO selectByPrimaryKey(Integer id);
+    UserPasswordDO selectByUserId(Integer id);
 
     int updateByPrimaryKeySelective(UserPasswordDO record);
 
