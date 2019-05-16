@@ -51,10 +51,9 @@ public class UserServiceImpl implements UserService {
             throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR);
 
         }
-        System.out.println("pass:"+ userModel.getEncrtpPassword());
         ValidatorResult ruselt = validator.validate(userModel);
-        if(ruselt.isHasErrors()){
-            throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR,ruselt.getErrMsg());
+        if (ruselt.isHasErrors()) {
+            throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR, ruselt.getErrMsg());
 
         }
 
@@ -62,7 +61,7 @@ public class UserServiceImpl implements UserService {
         UserDO userDO = convertFromModel(userModel);
         userDOMapper.insertSelective(userDO);
 
-        UserPasswordDO userPasswordDO = converPasswordFromMoodel(userModel);
+        UserPasswordDO userPasswordDO = converPasswordFromModel(userModel);
         userPasswordDOMapper.insertSelective(userPasswordDO);
 
 
@@ -79,12 +78,13 @@ public class UserServiceImpl implements UserService {
         return userDO;
     }
 
-    private UserPasswordDO converPasswordFromMoodel(UserModel userModel) {
+    private UserPasswordDO converPasswordFromModel(UserModel userModel) {
         if (userModel == null) {
             return null;
         }
         UserPasswordDO userPasswordDO = new UserPasswordDO();
         userPasswordDO.setUserId(userModel.getId());
+        userPasswordDO.setKey(userModel.getKey());
         userPasswordDO.setEncrtpPassword(userModel.getEncrtpPassword());
         return userPasswordDO;
     }
