@@ -51,6 +51,7 @@ public class UserServiceImpl implements UserService {
             throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR);
 
         }
+        System.out.println("pass:"+ userModel.getEncrtpPassword());
         ValidatorResult ruselt = validator.validate(userModel);
         if(ruselt.isHasErrors()){
             throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR,ruselt.getErrMsg());

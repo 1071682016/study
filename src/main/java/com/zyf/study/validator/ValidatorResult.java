@@ -32,6 +32,6 @@ public class ValidatorResult {
 
     //获取错误信息的msg方法
     public String getErrMsg() {
-        return String.join(",", (CharSequence[]) errorMsgMap.values().toArray());
+        return String.join(",", (String[]) errorMsgMap.values().toArray());
     }
 }

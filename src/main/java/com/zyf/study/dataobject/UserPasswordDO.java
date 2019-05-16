@@ -5,6 +5,8 @@ public class UserPasswordDO {
 
     private Integer userId;
 
+    private String key;
+
     private String encrtpPassword;
 
     public Integer getId() {
@@ -21,6 +23,14 @@ public class UserPasswordDO {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key == null ? null : key.trim();
     }
 
     public String getEncrtpPassword() {

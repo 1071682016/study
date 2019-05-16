@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 public class UserModel {
     private Integer id;
 
-    @NotBlank(message = "")
+    @NotBlank(message = "昵称不能不填")
     private String name;
 
     private Byte gender;
@@ -23,7 +23,18 @@ public class UserModel {
 
     private String registerMode;
 
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
     private String thirdPartyId;
+
+    @NotBlank(message = "密钥不能为空")
+    private String key;
 
     @NotBlank(message = "密码不能为空")
     private String encrtpPassword;

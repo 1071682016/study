@@ -24,9 +24,9 @@
         <!--数据库链接URL，用户名、密码 -->
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://127.0.0.1:3306/maosha"
-                        userId="root"
-                        password="root">
+                        connectionURL="jdbc:mysql://139.159.181.94:3306/miaosha"
+                        userId="zzx"
+                        password="CxbfqxdOusImRvCb">
 
         </jdbcConnection>
 

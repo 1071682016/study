@@ -7,6 +7,7 @@ import com.zyf.study.error.EmBusinessError;
 import com.zyf.study.response.CommonReturnType;
 import com.zyf.study.service.UserService;
 import com.zyf.study.service.model.UserModel;
+import com.zyf.study.utils.MD5Util;
 import io.netty.util.internal.StringUtil;
 import org.apache.tomcat.util.security.MD5Encoder;
 import org.springframework.beans.BeanUtils;
@@ -41,13 +42,13 @@ public class UserController extends BaseController {
                                      @RequestParam(name = "otpCode") String otpCode) throws BusinessException {
         //验证otpcode
         String isSessionCode = (String) httpServletRequest.getSession().getAttribute(telphone);
-        if (!StringUtils.equals(otpCode, isSessionCode)) {
-            throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR, "短信验证码错误");
-        }
+//        if (!StringUtils.equals(otpCode, isSessionCode)) {
+//            throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR, "短信验证码错误");
+//        }
         UserModel userModel = new UserModel();
         userModel.setTelphone(telphone);
         userModel.setName(name);
-        userModel.setEncrtpPassword(MD5Encoder.encode(password.getBytes()));//加密密码
+        userModel.setEncrtpPassword(MD5Util.md5(password,"123abc"));//加密密码
 
         userService.register(userModel);
         return CommonReturnType.create(null);
