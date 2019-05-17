@@ -6,7 +6,6 @@ import com.zyf.study.error.EmBusinessError;
 import com.zyf.study.response.CommonReturnType;
 import com.zyf.study.service.UserService;
 import com.zyf.study.service.model.UserModel;
-import com.zyf.study.utils.MD5Util;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

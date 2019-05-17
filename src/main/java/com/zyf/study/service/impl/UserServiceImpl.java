@@ -62,10 +62,9 @@ public class UserServiceImpl implements UserService {
 
         //生成密钥
         Random random = new Random();
-        int randomInt = random.nextInt(9999);
-        randomInt += 1000;
+        int randomInt = random.nextInt(9999) + 1000;
         String key = String.valueOf(randomInt);
-        userModel.setKey(key);
+        userModel.setSecretKey(key);
         userModel.setEncrtpPassword(MD5Util.md5(userModel.getEncrtpPassword(),key));
 
 
@@ -98,7 +97,7 @@ public class UserServiceImpl implements UserService {
         }
         UserPasswordDO userPasswordDO = new UserPasswordDO();
         userPasswordDO.setUserId(userModel.getId());
-        userPasswordDO.setKey(userModel.getKey());
+        userPasswordDO.setSecretKey(userModel.getSecretKey());
         userPasswordDO.setEncrtpPassword(userModel.getEncrtpPassword());
         return userPasswordDO;
     }

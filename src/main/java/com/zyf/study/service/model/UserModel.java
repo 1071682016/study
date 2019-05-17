@@ -25,7 +25,15 @@ public class UserModel {
     private String thirdPartyId;
 
     //@NotBlank(message = "密钥不能为空")
-    private String key;
+    private String secretKey;
+
+    public String getSecretKey() {
+        return secretKey;
+    }
+
+    public void setSecretKey(String secretKey) {
+        this.secretKey = secretKey;
+    }
 
     @NotBlank(message = "密码不能为空")
     private String encrtpPassword;
@@ -33,12 +41,12 @@ public class UserModel {
     public UserModel() {
     }
 
-    public UserModel(Integer id, Byte gender, String registerMode, String thirdPartyId, String key) {
+    public UserModel(Integer id, Byte gender, String registerMode, String thirdPartyId, String secretKey) {
         this.id = id;
         this.gender = gender;
         this.registerMode = registerMode;
         this.thirdPartyId = thirdPartyId;
-        this.key = key;
+        this.secretKey = secretKey;
     }
 
     public Integer getId() {
@@ -95,14 +103,6 @@ public class UserModel {
 
     public void setThirdPartyId(String thirdPartyId) {
         this.thirdPartyId = thirdPartyId;
-    }
-
-    public String getKey() {
-        return key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
     }
 
     public String getEncrtpPassword() {
