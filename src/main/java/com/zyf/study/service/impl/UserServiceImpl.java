@@ -65,7 +65,7 @@ public class UserServiceImpl implements UserService {
         int randomInt = random.nextInt(9999) + 1000;
         String key = String.valueOf(randomInt);
         userModel.setSecretKey(key);
-        userModel.setEncrtpPassword(MD5Util.md5(userModel.getEncrtpPassword(),key));
+        userModel.setEncrtpPassword(MD5Util.md5(userModel.getEncrtpPassword(), key));
 
 
         //将UserModel 转成 dataObject
@@ -79,6 +79,22 @@ public class UserServiceImpl implements UserService {
 
 
         return userModel;
+    }
+
+    @Override
+    public void validateLogin(String telphone, String password) throws BusinessException {
+        UserDO userDO = userDOMapper.selectByTelphone(telphone);
+        if (userDO == null) {
+            throw new BusinessException(EmBusinessError.USER_LOGIN_FAIL);
+        }
+        UserPasswordDO userPasswordDO = userPasswordDOMapper.selectByUserId(userDO.getId());
+
+        UserModel userModel = convertFromDataObject(userDO, userPasswordDO);
+        if (!MD5Util.verify(password, userModel.getSecretKey(), userModel.getEncrtpPassword())) {
+            throw new BusinessException(EmBusinessError.USER_LOGIN_FAIL);
+        }
+        return;
+
     }
 
 

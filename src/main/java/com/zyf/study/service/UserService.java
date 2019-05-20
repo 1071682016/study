@@ -14,4 +14,7 @@ public interface UserService {
 
     //用户注册
     UserModel register(UserModel userModel) throws BusinessException;
+
+    //用户登录
+    void validateLogin(String telphone,String password) throws BusinessException;
 }

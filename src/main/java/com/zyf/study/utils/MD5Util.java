@@ -10,7 +10,7 @@ import org.apache.commons.codec.digest.DigestUtils;
  * To change this template use File | Settings | File Templates.
  * Description:
  */
-public class MD5Util {
+public class  MD5Util {
 
     private static final String key = "";
 
@@ -34,7 +34,7 @@ public class MD5Util {
      * @param md5  密文
      * @return true/false
      */
-    public static boolean verify(String text, String key, String md5) throws Exception {
+    public static boolean verify(String text, String key, String md5){
         //根据传入的密钥进行验证
         String md5Text = md5(text, key);
         if (md5Text.equalsIgnoreCase(md5)) {
