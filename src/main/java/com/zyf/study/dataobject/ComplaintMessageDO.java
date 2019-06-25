@@ -3,47 +3,47 @@ package com.zyf.study.dataobject;
 import java.math.BigDecimal;
 
 public class ComplaintMessageDO {
-    private String complaintid;
+    private String complaintId;
 
-    private String szciaoriginid;
+    private String szciaOriginId;
 
-    private Integer szciaexchangestatus;
+    private Integer szciaExchangeStatus;
 
-    private String userid;
+    private String userId;
 
-    private String orgid;
+    private String orgId;
 
-    private String orguserid;
+    private String orgUserId;
 
-    private String companyid;
+    private String companyId;
 
-    private String branchid;
+    private String branchId;
 
-    private String complaintregisterno;
+    private String complaintRegisterNo;
 
-    private String receivetype;
+    private String receiveType;
 
-    private String districtid;
+    private String districtId;
 
-    private String complaintpropertyid;
+    private String complaintPropertyId;
 
-    private String complainttypeid;
+    private String complaintTypeId;
 
-    private Integer isservice;
+    private Integer isService;
 
-    private String productname;
+    private String productName;
 
     private String brand;
 
-    private String servicetype;
+    private String serviceType;
 
-    private Integer shoppingtype;
+    private Integer shoppingType;
 
-    private String othershoppingtype;
+    private String otherShoppingType;
 
     private BigDecimal price;
 
-    private String consumedate;
+    private String consumeDate;
 
     private String description;
 
@@ -51,196 +51,196 @@ public class ComplaintMessageDO {
 
     private String demands;
 
-    private BigDecimal revertmoney;
+    private BigDecimal revertMoney;
 
     private BigDecimal compensation;
 
     private String evidence;
 
-    private String mertevidence;
+    private String mertEvidence;
 
-    private String ccevidence;
+    private String CCEvidence;
 
     private String arbitration;
 
-    private String arbitralaward;
+    private String arbitralAward;
 
     private String addition;
 
-    private Integer complaintstatus;
+    private Integer complaintStatus;
 
     private Integer froms;
 
-    private String complaintname;
+    private String complaintName;
 
-    private String complaintcontact;
+    private String complaintContact;
 
-    private String complaintphone;
+    private String complaintPhone;
 
-    private String provandcity;
+    private String provAndCity;
 
-    private String complaintaddress;
+    private String complaintAddress;
 
-    private String complaintweb;
+    private String complaintWeb;
 
-    private String complainchannels;
+    private String complainChannels;
 
-    private String clientip;
+    private String clientIp;
 
     private String province;
 
     private String city;
 
-    private Integer mediatestatus;
+    private Integer mediateStatus;
 
-    private Integer ishelp;
+    private Integer isHelp;
 
-    private String helpuserid;
+    private String helpUserId;
 
-    private Integer isreject;
+    private Integer isReject;
 
-    private String rejectreason;
+    private String rejectReason;
 
-    private Integer issupply;
+    private Integer isSupply;
 
-    private Integer iscompanyback;
+    private Integer isCompanyBack;
 
-    private Integer againtimes;
+    private Integer againTimes;
 
-    private Boolean showemail;
+    private Boolean showEmail;
 
-    private Boolean showcardid;
+    private Boolean showCardId;
 
-    private String createdon;
+    private String createdOn;
 
-    private String createdby;
+    private String createdBy;
 
-    private String modifiedon;
+    private String modifiedOn;
 
-    private String modifiedby;
+    private String modifiedBy;
 
-    private Integer istop;
+    private Integer isTop;
 
-    private Integer isreadcount;
+    private Integer isReadCount;
 
-    public String getComplaintid() {
-        return complaintid;
+    public String getComplaintId() {
+        return complaintId;
     }
 
-    public void setComplaintid(String complaintid) {
-        this.complaintid = complaintid == null ? null : complaintid.trim();
+    public void setComplaintId(String complaintId) {
+        this.complaintId = complaintId == null ? null : complaintId.trim();
     }
 
-    public String getSzciaoriginid() {
-        return szciaoriginid;
+    public String getSzciaOriginId() {
+        return szciaOriginId;
     }
 
-    public void setSzciaoriginid(String szciaoriginid) {
-        this.szciaoriginid = szciaoriginid == null ? null : szciaoriginid.trim();
+    public void setSzciaOriginId(String szciaOriginId) {
+        this.szciaOriginId = szciaOriginId == null ? null : szciaOriginId.trim();
     }
 
-    public Integer getSzciaexchangestatus() {
-        return szciaexchangestatus;
+    public Integer getSzciaExchangeStatus() {
+        return szciaExchangeStatus;
     }
 
-    public void setSzciaexchangestatus(Integer szciaexchangestatus) {
-        this.szciaexchangestatus = szciaexchangestatus;
+    public void setSzciaExchangeStatus(Integer szciaExchangeStatus) {
+        this.szciaExchangeStatus = szciaExchangeStatus;
     }
 
-    public String getUserid() {
-        return userid;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUserid(String userid) {
-        this.userid = userid == null ? null : userid.trim();
+    public void setUserId(String userId) {
+        this.userId = userId == null ? null : userId.trim();
     }
 
-    public String getOrgid() {
-        return orgid;
+    public String getOrgId() {
+        return orgId;
     }
 
-    public void setOrgid(String orgid) {
-        this.orgid = orgid == null ? null : orgid.trim();
+    public void setOrgId(String orgId) {
+        this.orgId = orgId == null ? null : orgId.trim();
     }
 
-    public String getOrguserid() {
-        return orguserid;
+    public String getOrgUserId() {
+        return orgUserId;
     }
 
-    public void setOrguserid(String orguserid) {
-        this.orguserid = orguserid == null ? null : orguserid.trim();
+    public void setOrgUserId(String orgUserId) {
+        this.orgUserId = orgUserId == null ? null : orgUserId.trim();
     }
 
-    public String getCompanyid() {
-        return companyid;
+    public String getCompanyId() {
+        return companyId;
     }
 
-    public void setCompanyid(String companyid) {
-        this.companyid = companyid == null ? null : companyid.trim();
+    public void setCompanyId(String companyId) {
+        this.companyId = companyId == null ? null : companyId.trim();
     }
 
-    public String getBranchid() {
-        return branchid;
+    public String getBranchId() {
+        return branchId;
     }
 
-    public void setBranchid(String branchid) {
-        this.branchid = branchid == null ? null : branchid.trim();
+    public void setBranchId(String branchId) {
+        this.branchId = branchId == null ? null : branchId.trim();
     }
 
-    public String getComplaintregisterno() {
-        return complaintregisterno;
+    public String getComplaintRegisterNo() {
+        return complaintRegisterNo;
     }
 
-    public void setComplaintregisterno(String complaintregisterno) {
-        this.complaintregisterno = complaintregisterno == null ? null : complaintregisterno.trim();
+    public void setComplaintRegisterNo(String complaintRegisterNo) {
+        this.complaintRegisterNo = complaintRegisterNo == null ? null : complaintRegisterNo.trim();
     }
 
-    public String getReceivetype() {
-        return receivetype;
+    public String getReceiveType() {
+        return receiveType;
     }
 
-    public void setReceivetype(String receivetype) {
-        this.receivetype = receivetype == null ? null : receivetype.trim();
+    public void setReceiveType(String receiveType) {
+        this.receiveType = receiveType == null ? null : receiveType.trim();
     }
 
-    public String getDistrictid() {
-        return districtid;
+    public String getDistrictId() {
+        return districtId;
     }
 
-    public void setDistrictid(String districtid) {
-        this.districtid = districtid == null ? null : districtid.trim();
+    public void setDistrictId(String districtId) {
+        this.districtId = districtId == null ? null : districtId.trim();
     }
 
-    public String getComplaintpropertyid() {
-        return complaintpropertyid;
+    public String getComplaintPropertyId() {
+        return complaintPropertyId;
     }
 
-    public void setComplaintpropertyid(String complaintpropertyid) {
-        this.complaintpropertyid = complaintpropertyid == null ? null : complaintpropertyid.trim();
+    public void setComplaintPropertyId(String complaintPropertyId) {
+        this.complaintPropertyId = complaintPropertyId == null ? null : complaintPropertyId.trim();
     }
 
-    public String getComplainttypeid() {
-        return complainttypeid;
+    public String getComplaintTypeId() {
+        return complaintTypeId;
     }
 
-    public void setComplainttypeid(String complainttypeid) {
-        this.complainttypeid = complainttypeid == null ? null : complainttypeid.trim();
+    public void setComplaintTypeId(String complaintTypeId) {
+        this.complaintTypeId = complaintTypeId == null ? null : complaintTypeId.trim();
     }
 
-    public Integer getIsservice() {
-        return isservice;
+    public Integer getIsService() {
+        return isService;
     }
 
-    public void setIsservice(Integer isservice) {
-        this.isservice = isservice;
+    public void setIsService(Integer isService) {
+        this.isService = isService;
     }
 
-    public String getProductname() {
-        return productname;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setProductname(String productname) {
-        this.productname = productname == null ? null : productname.trim();
+    public void setProductName(String productName) {
+        this.productName = productName == null ? null : productName.trim();
     }
 
     public String getBrand() {
@@ -251,28 +251,28 @@ public class ComplaintMessageDO {
         this.brand = brand == null ? null : brand.trim();
     }
 
-    public String getServicetype() {
-        return servicetype;
+    public String getServiceType() {
+        return serviceType;
     }
 
-    public void setServicetype(String servicetype) {
-        this.servicetype = servicetype == null ? null : servicetype.trim();
+    public void setServiceType(String serviceType) {
+        this.serviceType = serviceType == null ? null : serviceType.trim();
     }
 
-    public Integer getShoppingtype() {
-        return shoppingtype;
+    public Integer getShoppingType() {
+        return shoppingType;
     }
 
-    public void setShoppingtype(Integer shoppingtype) {
-        this.shoppingtype = shoppingtype;
+    public void setShoppingType(Integer shoppingType) {
+        this.shoppingType = shoppingType;
     }
 
-    public String getOthershoppingtype() {
-        return othershoppingtype;
+    public String getOtherShoppingType() {
+        return otherShoppingType;
     }
 
-    public void setOthershoppingtype(String othershoppingtype) {
-        this.othershoppingtype = othershoppingtype == null ? null : othershoppingtype.trim();
+    public void setOtherShoppingType(String otherShoppingType) {
+        this.otherShoppingType = otherShoppingType == null ? null : otherShoppingType.trim();
     }
 
     public BigDecimal getPrice() {
@@ -283,12 +283,12 @@ public class ComplaintMessageDO {
         this.price = price;
     }
 
-    public String getConsumedate() {
-        return consumedate;
+    public String getConsumeDate() {
+        return consumeDate;
     }
 
-    public void setConsumedate(String consumedate) {
-        this.consumedate = consumedate == null ? null : consumedate.trim();
+    public void setConsumeDate(String consumeDate) {
+        this.consumeDate = consumeDate == null ? null : consumeDate.trim();
     }
 
     public String getDescription() {
@@ -315,12 +315,12 @@ public class ComplaintMessageDO {
         this.demands = demands == null ? null : demands.trim();
     }
 
-    public BigDecimal getRevertmoney() {
-        return revertmoney;
+    public BigDecimal getRevertMoney() {
+        return revertMoney;
     }
 
-    public void setRevertmoney(BigDecimal revertmoney) {
-        this.revertmoney = revertmoney;
+    public void setRevertMoney(BigDecimal revertMoney) {
+        this.revertMoney = revertMoney;
     }
 
     public BigDecimal getCompensation() {
@@ -339,20 +339,20 @@ public class ComplaintMessageDO {
         this.evidence = evidence == null ? null : evidence.trim();
     }
 
-    public String getMertevidence() {
-        return mertevidence;
+    public String getMertEvidence() {
+        return mertEvidence;
     }
 
-    public void setMertevidence(String mertevidence) {
-        this.mertevidence = mertevidence == null ? null : mertevidence.trim();
+    public void setMertEvidence(String mertEvidence) {
+        this.mertEvidence = mertEvidence == null ? null : mertEvidence.trim();
     }
 
-    public String getCcevidence() {
-        return ccevidence;
+    public String getCCEvidence() {
+        return CCEvidence;
     }
 
-    public void setCcevidence(String ccevidence) {
-        this.ccevidence = ccevidence == null ? null : ccevidence.trim();
+    public void setCCEvidence(String CCEvidence) {
+        this.CCEvidence = CCEvidence == null ? null : CCEvidence.trim();
     }
 
     public String getArbitration() {
@@ -363,12 +363,12 @@ public class ComplaintMessageDO {
         this.arbitration = arbitration == null ? null : arbitration.trim();
     }
 
-    public String getArbitralaward() {
-        return arbitralaward;
+    public String getArbitralAward() {
+        return arbitralAward;
     }
 
-    public void setArbitralaward(String arbitralaward) {
-        this.arbitralaward = arbitralaward == null ? null : arbitralaward.trim();
+    public void setArbitralAward(String arbitralAward) {
+        this.arbitralAward = arbitralAward == null ? null : arbitralAward.trim();
     }
 
     public String getAddition() {
@@ -379,12 +379,12 @@ public class ComplaintMessageDO {
         this.addition = addition == null ? null : addition.trim();
     }
 
-    public Integer getComplaintstatus() {
-        return complaintstatus;
+    public Integer getComplaintStatus() {
+        return complaintStatus;
     }
 
-    public void setComplaintstatus(Integer complaintstatus) {
-        this.complaintstatus = complaintstatus;
+    public void setComplaintStatus(Integer complaintStatus) {
+        this.complaintStatus = complaintStatus;
     }
 
     public Integer getFroms() {
@@ -395,68 +395,68 @@ public class ComplaintMessageDO {
         this.froms = froms;
     }
 
-    public String getComplaintname() {
-        return complaintname;
+    public String getComplaintName() {
+        return complaintName;
     }
 
-    public void setComplaintname(String complaintname) {
-        this.complaintname = complaintname == null ? null : complaintname.trim();
+    public void setComplaintName(String complaintName) {
+        this.complaintName = complaintName == null ? null : complaintName.trim();
     }
 
-    public String getComplaintcontact() {
-        return complaintcontact;
+    public String getComplaintContact() {
+        return complaintContact;
     }
 
-    public void setComplaintcontact(String complaintcontact) {
-        this.complaintcontact = complaintcontact == null ? null : complaintcontact.trim();
+    public void setComplaintContact(String complaintContact) {
+        this.complaintContact = complaintContact == null ? null : complaintContact.trim();
     }
 
-    public String getComplaintphone() {
-        return complaintphone;
+    public String getComplaintPhone() {
+        return complaintPhone;
     }
 
-    public void setComplaintphone(String complaintphone) {
-        this.complaintphone = complaintphone == null ? null : complaintphone.trim();
+    public void setComplaintPhone(String complaintPhone) {
+        this.complaintPhone = complaintPhone == null ? null : complaintPhone.trim();
     }
 
-    public String getProvandcity() {
-        return provandcity;
+    public String getProvAndCity() {
+        return provAndCity;
     }
 
-    public void setProvandcity(String provandcity) {
-        this.provandcity = provandcity == null ? null : provandcity.trim();
+    public void setProvAndCity(String provAndCity) {
+        this.provAndCity = provAndCity == null ? null : provAndCity.trim();
     }
 
-    public String getComplaintaddress() {
-        return complaintaddress;
+    public String getComplaintAddress() {
+        return complaintAddress;
     }
 
-    public void setComplaintaddress(String complaintaddress) {
-        this.complaintaddress = complaintaddress == null ? null : complaintaddress.trim();
+    public void setComplaintAddress(String complaintAddress) {
+        this.complaintAddress = complaintAddress == null ? null : complaintAddress.trim();
     }
 
-    public String getComplaintweb() {
-        return complaintweb;
+    public String getComplaintWeb() {
+        return complaintWeb;
     }
 
-    public void setComplaintweb(String complaintweb) {
-        this.complaintweb = complaintweb == null ? null : complaintweb.trim();
+    public void setComplaintWeb(String complaintWeb) {
+        this.complaintWeb = complaintWeb == null ? null : complaintWeb.trim();
     }
 
-    public String getComplainchannels() {
-        return complainchannels;
+    public String getComplainChannels() {
+        return complainChannels;
     }
 
-    public void setComplainchannels(String complainchannels) {
-        this.complainchannels = complainchannels == null ? null : complainchannels.trim();
+    public void setComplainChannels(String complainChannels) {
+        this.complainChannels = complainChannels == null ? null : complainChannels.trim();
     }
 
-    public String getClientip() {
-        return clientip;
+    public String getClientIp() {
+        return clientIp;
     }
 
-    public void setClientip(String clientip) {
-        this.clientip = clientip == null ? null : clientip.trim();
+    public void setClientIp(String clientIp) {
+        this.clientIp = clientIp == null ? null : clientIp.trim();
     }
 
     public String getProvince() {
@@ -475,131 +475,131 @@ public class ComplaintMessageDO {
         this.city = city == null ? null : city.trim();
     }
 
-    public Integer getMediatestatus() {
-        return mediatestatus;
+    public Integer getMediateStatus() {
+        return mediateStatus;
     }
 
-    public void setMediatestatus(Integer mediatestatus) {
-        this.mediatestatus = mediatestatus;
+    public void setMediateStatus(Integer mediateStatus) {
+        this.mediateStatus = mediateStatus;
     }
 
-    public Integer getIshelp() {
-        return ishelp;
+    public Integer getIsHelp() {
+        return isHelp;
     }
 
-    public void setIshelp(Integer ishelp) {
-        this.ishelp = ishelp;
+    public void setIsHelp(Integer isHelp) {
+        this.isHelp = isHelp;
     }
 
-    public String getHelpuserid() {
-        return helpuserid;
+    public String getHelpUserId() {
+        return helpUserId;
     }
 
-    public void setHelpuserid(String helpuserid) {
-        this.helpuserid = helpuserid == null ? null : helpuserid.trim();
+    public void setHelpUserId(String helpUserId) {
+        this.helpUserId = helpUserId == null ? null : helpUserId.trim();
     }
 
-    public Integer getIsreject() {
-        return isreject;
+    public Integer getIsReject() {
+        return isReject;
     }
 
-    public void setIsreject(Integer isreject) {
-        this.isreject = isreject;
+    public void setIsReject(Integer isReject) {
+        this.isReject = isReject;
     }
 
-    public String getRejectreason() {
-        return rejectreason;
+    public String getRejectReason() {
+        return rejectReason;
     }
 
-    public void setRejectreason(String rejectreason) {
-        this.rejectreason = rejectreason == null ? null : rejectreason.trim();
+    public void setRejectReason(String rejectReason) {
+        this.rejectReason = rejectReason == null ? null : rejectReason.trim();
     }
 
-    public Integer getIssupply() {
-        return issupply;
+    public Integer getIsSupply() {
+        return isSupply;
     }
 
-    public void setIssupply(Integer issupply) {
-        this.issupply = issupply;
+    public void setIsSupply(Integer isSupply) {
+        this.isSupply = isSupply;
     }
 
-    public Integer getIscompanyback() {
-        return iscompanyback;
+    public Integer getIsCompanyBack() {
+        return isCompanyBack;
     }
 
-    public void setIscompanyback(Integer iscompanyback) {
-        this.iscompanyback = iscompanyback;
+    public void setIsCompanyBack(Integer isCompanyBack) {
+        this.isCompanyBack = isCompanyBack;
     }
 
-    public Integer getAgaintimes() {
-        return againtimes;
+    public Integer getAgainTimes() {
+        return againTimes;
     }
 
-    public void setAgaintimes(Integer againtimes) {
-        this.againtimes = againtimes;
+    public void setAgainTimes(Integer againTimes) {
+        this.againTimes = againTimes;
     }
 
-    public Boolean getShowemail() {
-        return showemail;
+    public Boolean getShowEmail() {
+        return showEmail;
     }
 
-    public void setShowemail(Boolean showemail) {
-        this.showemail = showemail;
+    public void setShowEmail(Boolean showEmail) {
+        this.showEmail = showEmail;
     }
 
-    public Boolean getShowcardid() {
-        return showcardid;
+    public Boolean getShowCardId() {
+        return showCardId;
     }
 
-    public void setShowcardid(Boolean showcardid) {
-        this.showcardid = showcardid;
+    public void setShowCardId(Boolean showCardId) {
+        this.showCardId = showCardId;
     }
 
-    public String getCreatedon() {
-        return createdon;
+    public String getCreatedOn() {
+        return createdOn;
     }
 
-    public void setCreatedon(String createdon) {
-        this.createdon = createdon == null ? null : createdon.trim();
+    public void setCreatedOn(String createdOn) {
+        this.createdOn = createdOn == null ? null : createdOn.trim();
     }
 
-    public String getCreatedby() {
-        return createdby;
+    public String getCreatedBy() {
+        return createdBy;
     }
 
-    public void setCreatedby(String createdby) {
-        this.createdby = createdby == null ? null : createdby.trim();
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy == null ? null : createdBy.trim();
     }
 
-    public String getModifiedon() {
-        return modifiedon;
+    public String getModifiedOn() {
+        return modifiedOn;
     }
 
-    public void setModifiedon(String modifiedon) {
-        this.modifiedon = modifiedon == null ? null : modifiedon.trim();
+    public void setModifiedOn(String modifiedOn) {
+        this.modifiedOn = modifiedOn == null ? null : modifiedOn.trim();
     }
 
-    public String getModifiedby() {
-        return modifiedby;
+    public String getModifiedBy() {
+        return modifiedBy;
     }
 
-    public void setModifiedby(String modifiedby) {
-        this.modifiedby = modifiedby == null ? null : modifiedby.trim();
+    public void setModifiedBy(String modifiedBy) {
+        this.modifiedBy = modifiedBy == null ? null : modifiedBy.trim();
     }
 
-    public Integer getIstop() {
-        return istop;
+    public Integer getIsTop() {
+        return isTop;
     }
 
-    public void setIstop(Integer istop) {
-        this.istop = istop;
+    public void setIsTop(Integer isTop) {
+        this.isTop = isTop;
     }
 
-    public Integer getIsreadcount() {
-        return isreadcount;
+    public Integer getIsReadCount() {
+        return isReadCount;
     }
 
-    public void setIsreadcount(Integer isreadcount) {
-        this.isreadcount = isreadcount;
+    public void setIsReadCount(Integer isReadCount) {
+        this.isReadCount = isReadCount;
     }
 }

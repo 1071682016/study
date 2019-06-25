@@ -14,6 +14,6 @@ import com.zyf.study.error.BusinessException;
 public interface ComplaintMessageService {
 
     //全年实时投诉量
-    ComplaintMessageDO annualComplaintNumber() throws BusinessException;
+    ComplaintMessageDO annualComplaintNumber(String CreatedOn) throws BusinessException;
 
 }

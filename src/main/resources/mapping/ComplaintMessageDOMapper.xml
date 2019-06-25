@@ -2,6 +2,746 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zyf.study.dao.ComplaintMessageDOMapper">
   <resultMap id="BaseResultMap" type="com.zyf.study.dataobject.ComplaintMessageDO">
+    <id column="ComplaintId" jdbcType="NVARCHAR" property="complaintId" />
+    <result column="SzciaOriginId" jdbcType="NVARCHAR" property="szciaOriginId" />
+    <result column="SzciaExchangeStatus" jdbcType="INTEGER" property="szciaExchangeStatus" />
+    <result column="UserId" jdbcType="NVARCHAR" property="userId" />
+    <result column="OrgId" jdbcType="NVARCHAR" property="orgId" />
+    <result column="OrgUserId" jdbcType="NVARCHAR" property="orgUserId" />
+    <result column="CompanyId" jdbcType="NVARCHAR" property="companyId" />
+    <result column="BranchId" jdbcType="NVARCHAR" property="branchId" />
+    <result column="ComplaintRegisterNo" jdbcType="NVARCHAR" property="complaintRegisterNo" />
+    <result column="ReceiveType" jdbcType="CHAR" property="receiveType" />
+    <result column="DistrictId" jdbcType="NVARCHAR" property="districtId" />
+    <result column="ComplaintPropertyId" jdbcType="NVARCHAR" property="complaintPropertyId" />
+    <result column="ComplaintTypeId" jdbcType="NVARCHAR" property="complaintTypeId" />
+    <result column="IsService" jdbcType="INTEGER" property="isService" />
+    <result column="ProductName" jdbcType="NVARCHAR" property="productName" />
+    <result column="Brand" jdbcType="NVARCHAR" property="brand" />
+    <result column="ServiceType" jdbcType="NVARCHAR" property="serviceType" />
+    <result column="ShoppingType" jdbcType="INTEGER" property="shoppingType" />
+    <result column="OtherShoppingType" jdbcType="NVARCHAR" property="otherShoppingType" />
+    <result column="Price" jdbcType="DECIMAL" property="price" />
+    <result column="ConsumeDate" jdbcType="NVARCHAR" property="consumeDate" />
+    <result column="Description" jdbcType="NVARCHAR" property="description" />
+    <result column="Consult" jdbcType="NVARCHAR" property="consult" />
+    <result column="Demands" jdbcType="NVARCHAR" property="demands" />
+    <result column="RevertMoney" jdbcType="DECIMAL" property="revertMoney" />
+    <result column="Compensation" jdbcType="DECIMAL" property="compensation" />
+    <result column="Evidence" jdbcType="NVARCHAR" property="evidence" />
+    <result column="MertEvidence" jdbcType="NVARCHAR" property="mertEvidence" />
+    <result column="CCEvidence" jdbcType="NVARCHAR" property="CCEvidence" />
+    <result column="Arbitration" jdbcType="NVARCHAR" property="arbitration" />
+    <result column="ArbitralAward" jdbcType="NVARCHAR" property="arbitralAward" />
+    <result column="Addition" jdbcType="NVARCHAR" property="addition" />
+    <result column="ComplaintStatus" jdbcType="INTEGER" property="complaintStatus" />
+    <result column="Froms" jdbcType="INTEGER" property="froms" />
+    <result column="ComplaintName" jdbcType="NVARCHAR" property="complaintName" />
+    <result column="ComplaintContact" jdbcType="NVARCHAR" property="complaintContact" />
+    <result column="ComplaintPhone" jdbcType="NVARCHAR" property="complaintPhone" />
+    <result column="ProvAndCity" jdbcType="NVARCHAR" property="provAndCity" />
+    <result column="ComplaintAddress" jdbcType="NVARCHAR" property="complaintAddress" />
+    <result column="ComplaintWeb" jdbcType="NVARCHAR" property="complaintWeb" />
+    <result column="ComplainChannels" jdbcType="NVARCHAR" property="complainChannels" />
+    <result column="ClientIp" jdbcType="NVARCHAR" property="clientIp" />
+    <result column="Province" jdbcType="NVARCHAR" property="province" />
+    <result column="City" jdbcType="NVARCHAR" property="city" />
+    <result column="MediateStatus" jdbcType="INTEGER" property="mediateStatus" />
+    <result column="IsHelp" jdbcType="INTEGER" property="isHelp" />
+    <result column="HelpUserId" jdbcType="NVARCHAR" property="helpUserId" />
+    <result column="IsReject" jdbcType="INTEGER" property="isReject" />
+    <result column="RejectReason" jdbcType="NVARCHAR" property="rejectReason" />
+    <result column="IsSupply" jdbcType="INTEGER" property="isSupply" />
+    <result column="IsCompanyBack" jdbcType="INTEGER" property="isCompanyBack" />
+    <result column="AgainTimes" jdbcType="INTEGER" property="againTimes" />
+    <result column="ShowEmail" jdbcType="BIT" property="showEmail" />
+    <result column="ShowCardId" jdbcType="BIT" property="showCardId" />
+    <result column="CreatedOn" jdbcType="NVARCHAR" property="createdOn" />
+    <result column="CreatedBy" jdbcType="NVARCHAR" property="createdBy" />
+    <result column="ModifiedOn" jdbcType="NVARCHAR" property="modifiedOn" />
+    <result column="ModifiedBy" jdbcType="NVARCHAR" property="modifiedBy" />
+    <result column="IsTop" jdbcType="INTEGER" property="isTop" />
+    <result column="IsReadCount" jdbcType="INTEGER" property="isReadCount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ComplaintId, SzciaOriginId, SzciaExchangeStatus, UserId, OrgId, OrgUserId, CompanyId, 
+    BranchId, ComplaintRegisterNo, ReceiveType, DistrictId, ComplaintPropertyId, ComplaintTypeId, 
+    IsService, ProductName, Brand, ServiceType, ShoppingType, OtherShoppingType, Price, 
+    ConsumeDate, Description, Consult, Demands, RevertMoney, Compensation, Evidence, 
+    MertEvidence, CCEvidence, Arbitration, ArbitralAward, Addition, ComplaintStatus, 
+    Froms, ComplaintName, ComplaintContact, ComplaintPhone, ProvAndCity, ComplaintAddress, 
+    ComplaintWeb, ComplainChannels, ClientIp, Province, City, MediateStatus, IsHelp, 
+    HelpUserId, IsReject, RejectReason, IsSupply, IsCompanyBack, AgainTimes, ShowEmail, 
+    ShowCardId, CreatedOn, CreatedBy, ModifiedOn, ModifiedBy, IsTop, IsReadCount
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Com_ComplaintMessage_tb
+    where ComplaintId = #{complaintId,jdbcType=NVARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from Com_ComplaintMessage_tb
+    where ComplaintId = #{complaintId,jdbcType=NVARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zyf.study.dataobject.ComplaintMessageDO">
+    insert into Com_ComplaintMessage_tb (ComplaintId, SzciaOriginId, SzciaExchangeStatus, 
+      UserId, OrgId, OrgUserId, 
+      CompanyId, BranchId, ComplaintRegisterNo, 
+      ReceiveType, DistrictId, ComplaintPropertyId, 
+      ComplaintTypeId, IsService, ProductName, 
+      Brand, ServiceType, ShoppingType, 
+      OtherShoppingType, Price, ConsumeDate, 
+      Description, Consult, Demands, 
+      RevertMoney, Compensation, Evidence, 
+      MertEvidence, CCEvidence, Arbitration, 
+      ArbitralAward, Addition, ComplaintStatus, 
+      Froms, ComplaintName, ComplaintContact, 
+      ComplaintPhone, ProvAndCity, ComplaintAddress, 
+      ComplaintWeb, ComplainChannels, ClientIp, 
+      Province, City, MediateStatus, 
+      IsHelp, HelpUserId, IsReject, 
+      RejectReason, IsSupply, IsCompanyBack, 
+      AgainTimes, ShowEmail, ShowCardId, 
+      CreatedOn, CreatedBy, ModifiedOn, 
+      ModifiedBy, IsTop, IsReadCount
+      )
+    values (#{complaintId,jdbcType=NVARCHAR}, #{szciaOriginId,jdbcType=NVARCHAR}, #{szciaExchangeStatus,jdbcType=INTEGER}, 
+      #{userId,jdbcType=NVARCHAR}, #{orgId,jdbcType=NVARCHAR}, #{orgUserId,jdbcType=NVARCHAR}, 
+      #{companyId,jdbcType=NVARCHAR}, #{branchId,jdbcType=NVARCHAR}, #{complaintRegisterNo,jdbcType=NVARCHAR}, 
+      #{receiveType,jdbcType=CHAR}, #{districtId,jdbcType=NVARCHAR}, #{complaintPropertyId,jdbcType=NVARCHAR}, 
+      #{complaintTypeId,jdbcType=NVARCHAR}, #{isService,jdbcType=INTEGER}, #{productName,jdbcType=NVARCHAR}, 
+      #{brand,jdbcType=NVARCHAR}, #{serviceType,jdbcType=NVARCHAR}, #{shoppingType,jdbcType=INTEGER}, 
+      #{otherShoppingType,jdbcType=NVARCHAR}, #{price,jdbcType=DECIMAL}, #{consumeDate,jdbcType=NVARCHAR}, 
+      #{description,jdbcType=NVARCHAR}, #{consult,jdbcType=NVARCHAR}, #{demands,jdbcType=NVARCHAR}, 
+      #{revertMoney,jdbcType=DECIMAL}, #{compensation,jdbcType=DECIMAL}, #{evidence,jdbcType=NVARCHAR}, 
+      #{mertEvidence,jdbcType=NVARCHAR}, #{CCEvidence,jdbcType=NVARCHAR}, #{arbitration,jdbcType=NVARCHAR}, 
+      #{arbitralAward,jdbcType=NVARCHAR}, #{addition,jdbcType=NVARCHAR}, #{complaintStatus,jdbcType=INTEGER}, 
+      #{froms,jdbcType=INTEGER}, #{complaintName,jdbcType=NVARCHAR}, #{complaintContact,jdbcType=NVARCHAR}, 
+      #{complaintPhone,jdbcType=NVARCHAR}, #{provAndCity,jdbcType=NVARCHAR}, #{complaintAddress,jdbcType=NVARCHAR}, 
+      #{complaintWeb,jdbcType=NVARCHAR}, #{complainChannels,jdbcType=NVARCHAR}, #{clientIp,jdbcType=NVARCHAR}, 
+      #{province,jdbcType=NVARCHAR}, #{city,jdbcType=NVARCHAR}, #{mediateStatus,jdbcType=INTEGER}, 
+      #{isHelp,jdbcType=INTEGER}, #{helpUserId,jdbcType=NVARCHAR}, #{isReject,jdbcType=INTEGER}, 
+      #{rejectReason,jdbcType=NVARCHAR}, #{isSupply,jdbcType=INTEGER}, #{isCompanyBack,jdbcType=INTEGER}, 
+      #{againTimes,jdbcType=INTEGER}, #{showEmail,jdbcType=BIT}, #{showCardId,jdbcType=BIT}, 
+      #{createdOn,jdbcType=NVARCHAR}, #{createdBy,jdbcType=NVARCHAR}, #{modifiedOn,jdbcType=NVARCHAR}, 
+      #{modifiedBy,jdbcType=NVARCHAR}, #{isTop,jdbcType=INTEGER}, #{isReadCount,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zyf.study.dataobject.ComplaintMessageDO">
+    insert into Com_ComplaintMessage_tb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="complaintId != null">
+        ComplaintId,
+      </if>
+      <if test="szciaOriginId != null">
+        SzciaOriginId,
+      </if>
+      <if test="szciaExchangeStatus != null">
+        SzciaExchangeStatus,
+      </if>
+      <if test="userId != null">
+        UserId,
+      </if>
+      <if test="orgId != null">
+        OrgId,
+      </if>
+      <if test="orgUserId != null">
+        OrgUserId,
+      </if>
+      <if test="companyId != null">
+        CompanyId,
+      </if>
+      <if test="branchId != null">
+        BranchId,
+      </if>
+      <if test="complaintRegisterNo != null">
+        ComplaintRegisterNo,
+      </if>
+      <if test="receiveType != null">
+        ReceiveType,
+      </if>
+      <if test="districtId != null">
+        DistrictId,
+      </if>
+      <if test="complaintPropertyId != null">
+        ComplaintPropertyId,
+      </if>
+      <if test="complaintTypeId != null">
+        ComplaintTypeId,
+      </if>
+      <if test="isService != null">
+        IsService,
+      </if>
+      <if test="productName != null">
+        ProductName,
+      </if>
+      <if test="brand != null">
+        Brand,
+      </if>
+      <if test="serviceType != null">
+        ServiceType,
+      </if>
+      <if test="shoppingType != null">
+        ShoppingType,
+      </if>
+      <if test="otherShoppingType != null">
+        OtherShoppingType,
+      </if>
+      <if test="price != null">
+        Price,
+      </if>
+      <if test="consumeDate != null">
+        ConsumeDate,
+      </if>
+      <if test="description != null">
+        Description,
+      </if>
+      <if test="consult != null">
+        Consult,
+      </if>
+      <if test="demands != null">
+        Demands,
+      </if>
+      <if test="revertMoney != null">
+        RevertMoney,
+      </if>
+      <if test="compensation != null">
+        Compensation,
+      </if>
+      <if test="evidence != null">
+        Evidence,
+      </if>
+      <if test="mertEvidence != null">
+        MertEvidence,
+      </if>
+      <if test="CCEvidence != null">
+        CCEvidence,
+      </if>
+      <if test="arbitration != null">
+        Arbitration,
+      </if>
+      <if test="arbitralAward != null">
+        ArbitralAward,
+      </if>
+      <if test="addition != null">
+        Addition,
+      </if>
+      <if test="complaintStatus != null">
+        ComplaintStatus,
+      </if>
+      <if test="froms != null">
+        Froms,
+      </if>
+      <if test="complaintName != null">
+        ComplaintName,
+      </if>
+      <if test="complaintContact != null">
+        ComplaintContact,
+      </if>
+      <if test="complaintPhone != null">
+        ComplaintPhone,
+      </if>
+      <if test="provAndCity != null">
+        ProvAndCity,
+      </if>
+      <if test="complaintAddress != null">
+        ComplaintAddress,
+      </if>
+      <if test="complaintWeb != null">
+        ComplaintWeb,
+      </if>
+      <if test="complainChannels != null">
+        ComplainChannels,
+      </if>
+      <if test="clientIp != null">
+        ClientIp,
+      </if>
+      <if test="province != null">
+        Province,
+      </if>
+      <if test="city != null">
+        City,
+      </if>
+      <if test="mediateStatus != null">
+        MediateStatus,
+      </if>
+      <if test="isHelp != null">
+        IsHelp,
+      </if>
+      <if test="helpUserId != null">
+        HelpUserId,
+      </if>
+      <if test="isReject != null">
+        IsReject,
+      </if>
+      <if test="rejectReason != null">
+        RejectReason,
+      </if>
+      <if test="isSupply != null">
+        IsSupply,
+      </if>
+      <if test="isCompanyBack != null">
+        IsCompanyBack,
+      </if>
+      <if test="againTimes != null">
+        AgainTimes,
+      </if>
+      <if test="showEmail != null">
+        ShowEmail,
+      </if>
+      <if test="showCardId != null">
+        ShowCardId,
+      </if>
+      <if test="createdOn != null">
+        CreatedOn,
+      </if>
+      <if test="createdBy != null">
+        CreatedBy,
+      </if>
+      <if test="modifiedOn != null">
+        ModifiedOn,
+      </if>
+      <if test="modifiedBy != null">
+        ModifiedBy,
+      </if>
+      <if test="isTop != null">
+        IsTop,
+      </if>
+      <if test="isReadCount != null">
+        IsReadCount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="complaintId != null">
+        #{complaintId,jdbcType=NVARCHAR},
+      </if>
+      <if test="szciaOriginId != null">
+        #{szciaOriginId,jdbcType=NVARCHAR},
+      </if>
+      <if test="szciaExchangeStatus != null">
+        #{szciaExchangeStatus,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=NVARCHAR},
+      </if>
+      <if test="orgId != null">
+        #{orgId,jdbcType=NVARCHAR},
+      </if>
+      <if test="orgUserId != null">
+        #{orgUserId,jdbcType=NVARCHAR},
+      </if>
+      <if test="companyId != null">
+        #{companyId,jdbcType=NVARCHAR},
+      </if>
+      <if test="branchId != null">
+        #{branchId,jdbcType=NVARCHAR},
+      </if>
+      <if test="complaintRegisterNo != null">
+        #{complaintRegisterNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="receiveType != null">
+        #{receiveType,jdbcType=CHAR},
+      </if>
+      <if test="districtId != null">
+        #{districtId,jdbcType=NVARCHAR},
+      </if>
+      <if test="complaintPropertyId != null">
+        #{complaintPropertyId,jdbcType=NVARCHAR},
+      </if>
+      <if test="complaintTypeId != null">
+        #{complaintTypeId,jdbcType=NVARCHAR},
+      </if>
+      <if test="isService != null">
+        #{isService,jdbcType=INTEGER},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=NVARCHAR},
+      </if>
+      <if test="brand != null">
+        #{brand,jdbcType=NVARCHAR},
+      </if>
+      <if test="serviceType != null">
+        #{serviceType,jdbcType=NVARCHAR},
+      </if>
+      <if test="shoppingType != null">
+        #{shoppingType,jdbcType=INTEGER},
+      </if>
+      <if test="otherShoppingType != null">
+        #{otherShoppingType,jdbcType=NVARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="consumeDate != null">
+        #{consumeDate,jdbcType=NVARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=NVARCHAR},
+      </if>
+      <if test="consult != null">
+        #{consult,jdbcType=NVARCHAR},
+      </if>
+      <if test="demands != null">
+        #{demands,jdbcType=NVARCHAR},
+      </if>
+      <if test="revertMoney != null">
+        #{revertMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="compensation != null">
+        #{compensation,jdbcType=DECIMAL},
+      </if>
+      <if test="evidence != null">
+        #{evidence,jdbcType=NVARCHAR},
+      </if>
+      <if test="mertEvidence != null">
+        #{mertEvidence,jdbcType=NVARCHAR},
+      </if>
+      <if test="CCEvidence != null">
+        #{CCEvidence,jdbcType=NVARCHAR},
+      </if>
+      <if test="arbitration != null">
+        #{arbitration,jdbcType=NVARCHAR},
+      </if>
+      <if test="arbitralAward != null">
+        #{arbitralAward,jdbcType=NVARCHAR},
+      </if>
+      <if test="addition != null">
+        #{addition,jdbcType=NVARCHAR},
+      </if>
+      <if test="complaintStatus != null">
+        #{complaintStatus,jdbcType=INTEGER},
+      </if>
+      <if test="froms != null">
+        #{froms,jdbcType=INTEGER},
+      </if>
+      <if test="complaintName != null">
+        #{complaintName,jdbcType=NVARCHAR},
+      </if>
+      <if test="complaintContact != null">
+        #{complaintContact,jdbcType=NVARCHAR},
+      </if>
+      <if test="complaintPhone != null">
+        #{complaintPhone,jdbcType=NVARCHAR},
+      </if>
+      <if test="provAndCity != null">
+        #{provAndCity,jdbcType=NVARCHAR},
+      </if>
+      <if test="complaintAddress != null">
+        #{complaintAddress,jdbcType=NVARCHAR},
+      </if>
+      <if test="complaintWeb != null">
+        #{complaintWeb,jdbcType=NVARCHAR},
+      </if>
+      <if test="complainChannels != null">
+        #{complainChannels,jdbcType=NVARCHAR},
+      </if>
+      <if test="clientIp != null">
+        #{clientIp,jdbcType=NVARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=NVARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=NVARCHAR},
+      </if>
+      <if test="mediateStatus != null">
+        #{mediateStatus,jdbcType=INTEGER},
+      </if>
+      <if test="isHelp != null">
+        #{isHelp,jdbcType=INTEGER},
+      </if>
+      <if test="helpUserId != null">
+        #{helpUserId,jdbcType=NVARCHAR},
+      </if>
+      <if test="isReject != null">
+        #{isReject,jdbcType=INTEGER},
+      </if>
+      <if test="rejectReason != null">
+        #{rejectReason,jdbcType=NVARCHAR},
+      </if>
+      <if test="isSupply != null">
+        #{isSupply,jdbcType=INTEGER},
+      </if>
+      <if test="isCompanyBack != null">
+        #{isCompanyBack,jdbcType=INTEGER},
+      </if>
+      <if test="againTimes != null">
+        #{againTimes,jdbcType=INTEGER},
+      </if>
+      <if test="showEmail != null">
+        #{showEmail,jdbcType=BIT},
+      </if>
+      <if test="showCardId != null">
+        #{showCardId,jdbcType=BIT},
+      </if>
+      <if test="createdOn != null">
+        #{createdOn,jdbcType=NVARCHAR},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=NVARCHAR},
+      </if>
+      <if test="modifiedOn != null">
+        #{modifiedOn,jdbcType=NVARCHAR},
+      </if>
+      <if test="modifiedBy != null">
+        #{modifiedBy,jdbcType=NVARCHAR},
+      </if>
+      <if test="isTop != null">
+        #{isTop,jdbcType=INTEGER},
+      </if>
+      <if test="isReadCount != null">
+        #{isReadCount,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zyf.study.dataobject.ComplaintMessageDO">
+    update Com_ComplaintMessage_tb
+    <set>
+      <if test="szciaOriginId != null">
+        SzciaOriginId = #{szciaOriginId,jdbcType=NVARCHAR},
+      </if>
+      <if test="szciaExchangeStatus != null">
+        SzciaExchangeStatus = #{szciaExchangeStatus,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        UserId = #{userId,jdbcType=NVARCHAR},
+      </if>
+      <if test="orgId != null">
+        OrgId = #{orgId,jdbcType=NVARCHAR},
+      </if>
+      <if test="orgUserId != null">
+        OrgUserId = #{orgUserId,jdbcType=NVARCHAR},
+      </if>
+      <if test="companyId != null">
+        CompanyId = #{companyId,jdbcType=NVARCHAR},
+      </if>
+      <if test="branchId != null">
+        BranchId = #{branchId,jdbcType=NVARCHAR},
+      </if>
+      <if test="complaintRegisterNo != null">
+        ComplaintRegisterNo = #{complaintRegisterNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="receiveType != null">
+        ReceiveType = #{receiveType,jdbcType=CHAR},
+      </if>
+      <if test="districtId != null">
+        DistrictId = #{districtId,jdbcType=NVARCHAR},
+      </if>
+      <if test="complaintPropertyId != null">
+        ComplaintPropertyId = #{complaintPropertyId,jdbcType=NVARCHAR},
+      </if>
+      <if test="complaintTypeId != null">
+        ComplaintTypeId = #{complaintTypeId,jdbcType=NVARCHAR},
+      </if>
+      <if test="isService != null">
+        IsService = #{isService,jdbcType=INTEGER},
+      </if>
+      <if test="productName != null">
+        ProductName = #{productName,jdbcType=NVARCHAR},
+      </if>
+      <if test="brand != null">
+        Brand = #{brand,jdbcType=NVARCHAR},
+      </if>
+      <if test="serviceType != null">
+        ServiceType = #{serviceType,jdbcType=NVARCHAR},
+      </if>
+      <if test="shoppingType != null">
+        ShoppingType = #{shoppingType,jdbcType=INTEGER},
+      </if>
+      <if test="otherShoppingType != null">
+        OtherShoppingType = #{otherShoppingType,jdbcType=NVARCHAR},
+      </if>
+      <if test="price != null">
+        Price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="consumeDate != null">
+        ConsumeDate = #{consumeDate,jdbcType=NVARCHAR},
+      </if>
+      <if test="description != null">
+        Description = #{description,jdbcType=NVARCHAR},
+      </if>
+      <if test="consult != null">
+        Consult = #{consult,jdbcType=NVARCHAR},
+      </if>
+      <if test="demands != null">
+        Demands = #{demands,jdbcType=NVARCHAR},
+      </if>
+      <if test="revertMoney != null">
+        RevertMoney = #{revertMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="compensation != null">
+        Compensation = #{compensation,jdbcType=DECIMAL},
+      </if>
+      <if test="evidence != null">
+        Evidence = #{evidence,jdbcType=NVARCHAR},
+      </if>
+      <if test="mertEvidence != null">
+        MertEvidence = #{mertEvidence,jdbcType=NVARCHAR},
+      </if>
+      <if test="CCEvidence != null">
+        CCEvidence = #{CCEvidence,jdbcType=NVARCHAR},
+      </if>
+      <if test="arbitration != null">
+        Arbitration = #{arbitration,jdbcType=NVARCHAR},
+      </if>
+      <if test="arbitralAward != null">
+        ArbitralAward = #{arbitralAward,jdbcType=NVARCHAR},
+      </if>
+      <if test="addition != null">
+        Addition = #{addition,jdbcType=NVARCHAR},
+      </if>
+      <if test="complaintStatus != null">
+        ComplaintStatus = #{complaintStatus,jdbcType=INTEGER},
+      </if>
+      <if test="froms != null">
+        Froms = #{froms,jdbcType=INTEGER},
+      </if>
+      <if test="complaintName != null">
+        ComplaintName = #{complaintName,jdbcType=NVARCHAR},
+      </if>
+      <if test="complaintContact != null">
+        ComplaintContact = #{complaintContact,jdbcType=NVARCHAR},
+      </if>
+      <if test="complaintPhone != null">
+        ComplaintPhone = #{complaintPhone,jdbcType=NVARCHAR},
+      </if>
+      <if test="provAndCity != null">
+        ProvAndCity = #{provAndCity,jdbcType=NVARCHAR},
+      </if>
+      <if test="complaintAddress != null">
+        ComplaintAddress = #{complaintAddress,jdbcType=NVARCHAR},
+      </if>
+      <if test="complaintWeb != null">
+        ComplaintWeb = #{complaintWeb,jdbcType=NVARCHAR},
+      </if>
+      <if test="complainChannels != null">
+        ComplainChannels = #{complainChannels,jdbcType=NVARCHAR},
+      </if>
+      <if test="clientIp != null">
+        ClientIp = #{clientIp,jdbcType=NVARCHAR},
+      </if>
+      <if test="province != null">
+        Province = #{province,jdbcType=NVARCHAR},
+      </if>
+      <if test="city != null">
+        City = #{city,jdbcType=NVARCHAR},
+      </if>
+      <if test="mediateStatus != null">
+        MediateStatus = #{mediateStatus,jdbcType=INTEGER},
+      </if>
+      <if test="isHelp != null">
+        IsHelp = #{isHelp,jdbcType=INTEGER},
+      </if>
+      <if test="helpUserId != null">
+        HelpUserId = #{helpUserId,jdbcType=NVARCHAR},
+      </if>
+      <if test="isReject != null">
+        IsReject = #{isReject,jdbcType=INTEGER},
+      </if>
+      <if test="rejectReason != null">
+        RejectReason = #{rejectReason,jdbcType=NVARCHAR},
+      </if>
+      <if test="isSupply != null">
+        IsSupply = #{isSupply,jdbcType=INTEGER},
+      </if>
+      <if test="isCompanyBack != null">
+        IsCompanyBack = #{isCompanyBack,jdbcType=INTEGER},
+      </if>
+      <if test="againTimes != null">
+        AgainTimes = #{againTimes,jdbcType=INTEGER},
+      </if>
+      <if test="showEmail != null">
+        ShowEmail = #{showEmail,jdbcType=BIT},
+      </if>
+      <if test="showCardId != null">
+        ShowCardId = #{showCardId,jdbcType=BIT},
+      </if>
+      <if test="createdOn != null">
+        CreatedOn = #{createdOn,jdbcType=NVARCHAR},
+      </if>
+      <if test="createdBy != null">
+        CreatedBy = #{createdBy,jdbcType=NVARCHAR},
+      </if>
+      <if test="modifiedOn != null">
+        ModifiedOn = #{modifiedOn,jdbcType=NVARCHAR},
+      </if>
+      <if test="modifiedBy != null">
+        ModifiedBy = #{modifiedBy,jdbcType=NVARCHAR},
+      </if>
+      <if test="isTop != null">
+        IsTop = #{isTop,jdbcType=INTEGER},
+      </if>
+      <if test="isReadCount != null">
+        IsReadCount = #{isReadCount,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ComplaintId = #{complaintId,jdbcType=NVARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zyf.study.dataobject.ComplaintMessageDO">
+    update Com_ComplaintMessage_tb
+    set SzciaOriginId = #{szciaOriginId,jdbcType=NVARCHAR},
+      SzciaExchangeStatus = #{szciaExchangeStatus,jdbcType=INTEGER},
+      UserId = #{userId,jdbcType=NVARCHAR},
+      OrgId = #{orgId,jdbcType=NVARCHAR},
+      OrgUserId = #{orgUserId,jdbcType=NVARCHAR},
+      CompanyId = #{companyId,jdbcType=NVARCHAR},
+      BranchId = #{branchId,jdbcType=NVARCHAR},
+      ComplaintRegisterNo = #{complaintRegisterNo,jdbcType=NVARCHAR},
+      ReceiveType = #{receiveType,jdbcType=CHAR},
+      DistrictId = #{districtId,jdbcType=NVARCHAR},
+      ComplaintPropertyId = #{complaintPropertyId,jdbcType=NVARCHAR},
+      ComplaintTypeId = #{complaintTypeId,jdbcType=NVARCHAR},
+      IsService = #{isService,jdbcType=INTEGER},
+      ProductName = #{productName,jdbcType=NVARCHAR},
+      Brand = #{brand,jdbcType=NVARCHAR},
+      ServiceType = #{serviceType,jdbcType=NVARCHAR},
+      ShoppingType = #{shoppingType,jdbcType=INTEGER},
+      OtherShoppingType = #{otherShoppingType,jdbcType=NVARCHAR},
+      Price = #{price,jdbcType=DECIMAL},
+      ConsumeDate = #{consumeDate,jdbcType=NVARCHAR},
+      Description = #{description,jdbcType=NVARCHAR},
+      Consult = #{consult,jdbcType=NVARCHAR},
+      Demands = #{demands,jdbcType=NVARCHAR},
+      RevertMoney = #{revertMoney,jdbcType=DECIMAL},
+      Compensation = #{compensation,jdbcType=DECIMAL},
+      Evidence = #{evidence,jdbcType=NVARCHAR},
+      MertEvidence = #{mertEvidence,jdbcType=NVARCHAR},
+      CCEvidence = #{CCEvidence,jdbcType=NVARCHAR},
+      Arbitration = #{arbitration,jdbcType=NVARCHAR},
+      ArbitralAward = #{arbitralAward,jdbcType=NVARCHAR},
+      Addition = #{addition,jdbcType=NVARCHAR},
+      ComplaintStatus = #{complaintStatus,jdbcType=INTEGER},
+      Froms = #{froms,jdbcType=INTEGER},
+      ComplaintName = #{complaintName,jdbcType=NVARCHAR},
+      ComplaintContact = #{complaintContact,jdbcType=NVARCHAR},
+      ComplaintPhone = #{complaintPhone,jdbcType=NVARCHAR},
+      ProvAndCity = #{provAndCity,jdbcType=NVARCHAR},
+      ComplaintAddress = #{complaintAddress,jdbcType=NVARCHAR},
+      ComplaintWeb = #{complaintWeb,jdbcType=NVARCHAR},
+      ComplainChannels = #{complainChannels,jdbcType=NVARCHAR},
+      ClientIp = #{clientIp,jdbcType=NVARCHAR},
+      Province = #{province,jdbcType=NVARCHAR},
+      City = #{city,jdbcType=NVARCHAR},
+      MediateStatus = #{mediateStatus,jdbcType=INTEGER},
+      IsHelp = #{isHelp,jdbcType=INTEGER},
+      HelpUserId = #{helpUserId,jdbcType=NVARCHAR},
+      IsReject = #{isReject,jdbcType=INTEGER},
+      RejectReason = #{rejectReason,jdbcType=NVARCHAR},
+      IsSupply = #{isSupply,jdbcType=INTEGER},
+      IsCompanyBack = #{isCompanyBack,jdbcType=INTEGER},
+      AgainTimes = #{againTimes,jdbcType=INTEGER},
+      ShowEmail = #{showEmail,jdbcType=BIT},
+      ShowCardId = #{showCardId,jdbcType=BIT},
+      CreatedOn = #{createdOn,jdbcType=NVARCHAR},
+      CreatedBy = #{createdBy,jdbcType=NVARCHAR},
+      ModifiedOn = #{modifiedOn,jdbcType=NVARCHAR},
+      ModifiedBy = #{modifiedBy,jdbcType=NVARCHAR},
+      IsTop = #{isTop,jdbcType=INTEGER},
+      IsReadCount = #{isReadCount,jdbcType=INTEGER}
+    where ComplaintId = #{complaintId,jdbcType=NVARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.zyf.study.dataobject.ComplaintMessageDO">
     <id column="ComplaintId" jdbcType="NVARCHAR" property="complaintid" />
     <result column="SzciaOriginId" jdbcType="NVARCHAR" property="szciaoriginid" />
     <result column="SzciaExchangeStatus" jdbcType="INTEGER" property="szciaexchangestatus" />
@@ -79,6 +819,13 @@
     <include refid="Base_Column_List" />
     from Com_ComplaintMessage_tb
     where ComplaintId = #{complaintid,jdbcType=NVARCHAR}
+  </select>
+
+  <select id="selectByCreatedOn" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    count(*)
+    from Com_ComplaintMessage_tb
+    where CreatedOn = #{CreatedOn,jdbcType=NVARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from Com_ComplaintMessage_tb

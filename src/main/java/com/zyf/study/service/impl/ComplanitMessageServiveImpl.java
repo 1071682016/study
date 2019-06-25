@@ -1,8 +1,10 @@
 package com.zyf.study.service.impl;
 
+import com.zyf.study.dao.ComplaintMessageDOMapper;
 import com.zyf.study.dataobject.ComplaintMessageDO;
 import com.zyf.study.error.BusinessException;
 import com.zyf.study.service.ComplaintMessageService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Created with IntelliJ IDEA.
@@ -14,8 +16,19 @@ import com.zyf.study.service.ComplaintMessageService;
  */
 public class ComplanitMessageServiveImpl implements ComplaintMessageService {
 
+    @Autowired
+    private ComplaintMessageDOMapper complaintMessageDOMapper;
+
+
     @Override
-    public ComplaintMessageDO annualComplaintNumber() throws BusinessException {
+    public ComplaintMessageDO annualComplaintNumber(String CreatedOn) throws BusinessException {
+
+        complaintMessageDOMapper.selectByCreatedOn(CreatedOn);
+
+
+
+
+
 
         return null;
     }
