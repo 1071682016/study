@@ -3,6 +3,8 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
 
+    <properties resource="application.properties"></properties>
+
     <!-- 数据库驱动-->
 
     <!--<classPathEntry  location="D:\server\MavenRepository\maven_jar\com\sqlserver\sqljdbc4\2.0\sqljdbc4-2.0.jar"/>-->
@@ -23,11 +25,22 @@
 
         <!--数据库链接URL，用户名、密码 -->
 
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://139.159.181.94:3306/miaosha"
-                        userId="zzx"
-                        password="CxbfqxdOusImRvCb">
-        </jdbcConnection>
+        <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"-->
+                        <!--connectionURL="jdbc:mysql://139.159.181.94:3306/miaosha"-->
+                        <!--userId="zzx"-->
+                        <!--password="CxbfqxdOusImRvCb">-->
+
+        <!--</jdbcConnection>-->
+
+        <!-- 数据库连接配置 -->
+        <jdbcConnection driverClass="${spring.datasource.driver-class-name}"
+                        connectionURL="${spring.datasource.url} "
+                        userId="${spring.datasource.username}"
+                        password="${spring.datasource.password}" />
+
+        <!--<jdbcConnection driverClass="${jdb.com.microsoft.sqlserver.jdbc.SQLServerDriver}"-->
+                        <!--connectionURL="${spring.jdbc:sqlserver://localhost:1433;DatabaseName=test}" userId="${spring.datasource.data-username}" password="${spring.datasource.data-password}">-->
+        <!--</jdbcConnection>-->
 
         <javaTypeResolver>
 
@@ -65,9 +78,15 @@
         <!--<table tableName="user_info" domainObjectName="UserDO" enableCountByExample="false"-->
                <!--enableUpdateByExample="false" enableDeleteByExample="false"-->
                <!--enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
-        <table tableName="user_password" domainObjectName="UserPasswordDO" enableCountByExample="false"
-               enableUpdateByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <!--<table tableName="user_password" domainObjectName="UserPasswordDO" enableCountByExample="false"-->
+               <!--enableUpdateByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+
+        <table tableName="Com_ComplaintMessage_tb" domainObjectName="ComplaintMessageDO" enableCountByExample="false"
+        enableUpdateByExample="false" enableDeleteByExample="false"
+        enableSelectByExample="false" selectByExampleQueryId="false"></table>
+
+
     </context>
 
 </generatorConfiguration>
