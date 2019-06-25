@@ -42,7 +42,6 @@
                         <!--connectionURL="${spring.jdbc:sqlserver://localhost:1433;DatabaseName=test}" userId="${spring.datasource.data-username}" password="${spring.datasource.data-password}">-->
         <!--</jdbcConnection>-->
 
-
         <javaTypeResolver>
 
             <property name="forceBigDecimals" value="false"/>
