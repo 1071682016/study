@@ -14,4 +14,6 @@ public interface ComplaintMessageDOMapper {
     int updateByPrimaryKeySelective(ComplaintMessageDO record);
 
     int updateByPrimaryKey(ComplaintMessageDO record);
+
+    int selectByCreatedOn(String createdOn);
 }
