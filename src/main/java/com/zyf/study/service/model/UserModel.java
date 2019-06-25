@@ -1,5 +1,7 @@
 package com.zyf.study.service.model;
 
+import javax.validation.constraints.NotBlank;
+
 /**
  * 定义这个model,是因为dataobject直接映射数据库的不能直接返回前端
  * <p>
@@ -8,29 +10,43 @@ package com.zyf.study.service.model;
 public class UserModel {
     private Integer id;
 
+    @NotBlank(message = "昵称不能不填")
     private String name;
 
     private Byte gender;
-
     private Integer age;
 
+    @NotBlank(message = "手机号不能为空")
     private String telphone;
 
     private String registerMode;
 
+
     private String thirdPartyId;
 
+    //@NotBlank(message = "密钥不能为空")
+    private String secretKey;
+
+    public String getSecretKey() {
+        return secretKey;
+    }
+
+    public void setSecretKey(String secretKey) {
+        this.secretKey = secretKey;
+    }
+
+    @NotBlank(message = "密码不能为空")
     private String encrtpPassword;
 
     public UserModel() {
+    }
+
+    public UserModel(Integer id, Byte gender, String registerMode, String thirdPartyId, String secretKey) {
         this.id = id;
-        this.name = name;
         this.gender = gender;
-        this.age = age;
-        this.telphone = telphone;
         this.registerMode = registerMode;
         this.thirdPartyId = thirdPartyId;
-        this.encrtpPassword = encrtpPassword;
+        this.secretKey = secretKey;
     }
 
     public Integer getId() {

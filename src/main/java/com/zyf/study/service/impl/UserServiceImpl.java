@@ -4,11 +4,19 @@ import com.zyf.study.dao.UserDOMapper;
 import com.zyf.study.dao.UserPasswordDOMapper;
 import com.zyf.study.dataobject.UserDO;
 import com.zyf.study.dataobject.UserPasswordDO;
+import com.zyf.study.error.BusinessException;
+import com.zyf.study.error.EmBusinessError;
 import com.zyf.study.service.UserService;
 import com.zyf.study.service.model.UserModel;
+import com.zyf.study.utils.MD5Util;
+import com.zyf.study.validator.ValidatorImpl;
+import com.zyf.study.validator.ValidatorResult;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Random;
 
 /**
  * user实现类
@@ -17,10 +25,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
-    UserDOMapper userDOMapper;
+    private UserDOMapper userDOMapper;
 
     @Autowired
-    UserPasswordDOMapper userPasswordDOMapper;
+    private UserPasswordDOMapper userPasswordDOMapper;
+
+    @Autowired
+    private ValidatorImpl validator;
 
     @Override
     public UserModel getUserById(Integer id) {
@@ -36,6 +47,78 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    @Override
+    @Transactional
+    public UserModel register(UserModel userModel) throws BusinessException {
+        if (userModel == null) {
+            throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR);
+
+        }
+        ValidatorResult ruselt = validator.validate(userModel);
+        if (ruselt.isHasErrors()) {
+            throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR, ruselt.getErrMsg());
+
+        }
+
+        //生成密钥
+        Random random = new Random();
+        int randomInt = random.nextInt(9999) + 1000;
+        String key = String.valueOf(randomInt);
+        userModel.setSecretKey(key);
+        userModel.setEncrtpPassword(MD5Util.md5(userModel.getEncrtpPassword(), key));
+
+
+        //将UserModel 转成 dataObject
+        UserDO userDO = convertFromModel(userModel);
+        userDOMapper.insertSelective(userDO);
+
+        userModel.setId(userDO.getId());
+
+        UserPasswordDO userPasswordDO = converPasswordFromModel(userModel);
+        userPasswordDOMapper.insertSelective(userPasswordDO);
+
+
+        return userModel;
+    }
+
+    @Override
+    public void validateLogin(String telphone, String password) throws BusinessException {
+        UserDO userDO = userDOMapper.selectByTelphone(telphone);
+        if (userDO == null) {
+            throw new BusinessException(EmBusinessError.USER_LOGIN_FAIL);
+        }
+        UserPasswordDO userPasswordDO = userPasswordDOMapper.selectByUserId(userDO.getId());
+
+        UserModel userModel = convertFromDataObject(userDO, userPasswordDO);
+        if (!MD5Util.verify(password, userModel.getSecretKey(), userModel.getEncrtpPassword())) {
+            throw new BusinessException(EmBusinessError.USER_LOGIN_FAIL);
+        }
+        return;
+
+    }
+
+
+    private UserDO convertFromModel(UserModel userModel) {
+        if (userModel == null) {
+            return null;
+        }
+        UserDO userDO = new UserDO();
+        BeanUtils.copyProperties(userModel, userDO);
+        return userDO;
+    }
+
+    private UserPasswordDO converPasswordFromModel(UserModel userModel) {
+        if (userModel == null) {
+            return null;
+        }
+        UserPasswordDO userPasswordDO = new UserPasswordDO();
+        userPasswordDO.setUserId(userModel.getId());
+        userPasswordDO.setSecretKey(userModel.getSecretKey());
+        userPasswordDO.setEncrtpPassword(userModel.getEncrtpPassword());
+        return userPasswordDO;
+    }
+
+
     private UserModel convertFromDataObject(UserDO userDO, UserPasswordDO userPasswordDO) {
         if (userDO == null) {
             return null;
@@ -47,7 +130,6 @@ public class UserServiceImpl implements UserService {
             userModel.setEncrtpPassword(userPasswordDO.getEncrtpPassword());
         }
         return userModel;
-
 
     }
 }
