@@ -24,7 +24,7 @@
         <!--数据库链接URL，用户名、密码 -->
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://127.0.0.1:3306/maosha"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/springboot"
                         userId="root"
                         password="root">
 
