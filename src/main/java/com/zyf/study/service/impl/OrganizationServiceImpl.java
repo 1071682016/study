@@ -17,15 +17,7 @@ public class OrganizationServiceImpl implements OrganizationService {
 
     @Override
     public List<JSONObject> selectList() {
-//        OrganizationVO organizationVO = new OrganizationVO();
         List<JSONObject> list = orgDOMapper.selectOrg();
-        for (Object lists : list){
-            System.out.println(lists);
-        }
-//        organizationVO.setX("");
-//        organizationVO.setY("");
-//        organizationVO.setS(1);
-//        list.add(organizationVO);
         return list;
     }
 }

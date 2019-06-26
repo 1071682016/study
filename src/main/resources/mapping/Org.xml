@@ -3,13 +3,12 @@
 <mapper namespace="com.zyf.study.dao.OrgDOMapper">
     <resultMap id="BaseResultMap" type="com.zyf.study.dataobject.OrgDO">
         <result column="Name" jdbcType="VARCHAR" property="name"/>
-        <result column="Num" jdbcType="VARCHAR" property="num"/>
-        <result column="Num2" jdbcType="INTEGER" property="num2"/>
+        <result column="Num" jdbcType="INTEGER" property="num"/>
     </resultMap>
     <select id="selectOrg" parameterType="java.lang.String" resultMap="BaseResultMap">
-       select (SELECT COUNT(1) from dbo.Com_ComplaintMessage_tb) num,count(1) num2,b.Name
-       from dbo.Com_ComplaintMessage_tb a
-       left join dbo.Bus_Organization_tb b on a.OrgId = b.OrgId
-       GROUP BY a.OrgId,b.Name
+        select count(1) num,left(b.Name,2) name
+        from dbo.Com_ComplaintMessage_tb a
+        left join dbo.Bus_Organization_tb b on a.OrgId = b.OrgId
+        where b.Name &lt;&gt; '义务调解员部' and b.Name is not null GROUP BY a.OrgId,b.Name
     </select>
 </mapper>
