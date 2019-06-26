@@ -54,6 +54,9 @@
     from Mer_Company_tb
     where CompanyId = #{companyId,jdbcType=NVARCHAR}
   </select>
+  <select id="selectCompanyList" parameterType="java.lang.String" resultType="Integer">
+    select count(1) from Mer_Company_tb
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from Mer_Company_tb
     where CompanyId = #{companyId,jdbcType=NVARCHAR}

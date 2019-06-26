@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zyf.study.dao.OrgDOMapper">
+    <resultMap id="BaseResultMap" type="com.zyf.study.dataobject.OrgDO">
+        <result column="Name" jdbcType="VARCHAR" property="name"/>
+        <result column="Num" jdbcType="VARCHAR" property="num"/>
+        <result column="Num2" jdbcType="INTEGER" property="num2"/>
+    </resultMap>
+    <select id="selectOrg" parameterType="java.lang.String" resultMap="BaseResultMap">
+       select (SELECT COUNT(1) from dbo.Com_ComplaintMessage_tb) num,count(1) num2,b.Name
+       from dbo.Com_ComplaintMessage_tb a
+       left join dbo.Bus_Organization_tb b on a.OrgId = b.OrgId
+       GROUP BY a.OrgId,b.Name
+    </select>
+</mapper>

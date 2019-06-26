@@ -2,8 +2,9 @@ package com.zyf.study.dao;
 
 import com.zyf.study.dataobject.CompanyDO;
 
+import java.util.List;
+
 public interface CompanyDOMapper {
-    
     int deleteByPrimaryKey(String companyId);
 
     int insert(CompanyDO record);
@@ -15,4 +16,6 @@ public interface CompanyDOMapper {
     int updateByPrimaryKeySelective(CompanyDO record);
 
     int updateByPrimaryKey(CompanyDO record);
+
+    Integer selectCompanyList();
 }
