@@ -1,6 +1,7 @@
 package com.zyf.study.dao;
 
 import com.zyf.study.dataobject.ComplaintMessageDO;
+import org.apache.ibatis.annotations.Select;
 
 public interface ComplaintMessageDOMapper {
     int deleteByPrimaryKey(String complaintId);

@@ -3,6 +3,7 @@ package com.zyf.study.controller;
 import com.zyf.study.controller.viewObject.ObjectVO;
 import com.zyf.study.error.BusinessException;
 import com.zyf.study.service.ComplaintMessageService;
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,8 +30,10 @@ public class ComplaintMessageController extends BaseController {
     @RequestMapping("/getAnnualComplaintNumber")
     @ResponseBody
     public List<Object> getAnnualComplaintNumber() throws BusinessException {
+        DateTime dateTime = new DateTime();
+        String first= dateTime.dayOfYear().withMinimumValue().toString("yyyyMMdd");
         List<Object> data = new ArrayList<>();
-        int complaintNumber = complaintMessageService.getAnnualComplaintNumber("2019-01-01");
+        int complaintNumber = complaintMessageService.getAnnualComplaintNumber(first);
         ObjectVO objectVO = new ObjectVO();
         objectVO.setName("全年实时投诉量");
         objectVO.setValue(complaintNumber);

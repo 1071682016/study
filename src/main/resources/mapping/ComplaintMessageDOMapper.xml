@@ -81,11 +81,11 @@
     where ComplaintId = #{complaintId,jdbcType=NVARCHAR}
   </select>
 
-  <select id="selectComplaintNumber" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectComplaintNumber" parameterType="java.lang.String" resultType="Integer">
     select
     count (*)
     from Com_ComplaintMessage_tb
-    where CreatedOn &lt; #{createdOn,jdbcType=NVARCHAR}
+    where CreatedOn &gt;= #{createdOn,jdbcType=NVARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from Com_ComplaintMessage_tb
