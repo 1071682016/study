@@ -3,6 +3,7 @@ package com.zyf.study.dao;
 import com.zyf.study.dataobject.CompanyDO;
 
 public interface CompanyDOMapper {
+    
     int deleteByPrimaryKey(String companyId);
 
     int insert(CompanyDO record);
