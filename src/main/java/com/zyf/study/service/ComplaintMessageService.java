@@ -1,5 +1,6 @@
 package com.zyf.study.service;
 
+import com.zyf.study.error.BusinessException;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,5 +13,9 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public interface ComplaintMessageService {
+
+    int getAnnualComplaintNumber(String createdOn) throws BusinessException;
+
+
 
 }

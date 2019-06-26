@@ -82,9 +82,15 @@
                <!--enableUpdateByExample="false" enableDeleteByExample="false"-->
                <!--enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
 
-        <table tableName="Com_ComplaintMessage_tb" domainObjectName="ComplaintMessageDO" enableCountByExample="false"
-        enableUpdateByExample="false" enableDeleteByExample="false"
-        enableSelectByExample="false" selectByExampleQueryId="false" >
+        <!--<table tableName="Com_ComplaintMessage_tb" domainObjectName="ComplaintMessageDO" enableCountByExample="false"-->
+        <!--enableUpdateByExample="false" enableDeleteByExample="false"-->
+        <!--enableSelectByExample="false" selectByExampleQueryId="false" >-->
+            <!--<property name="useActualColumnNames" value="true"/>-->
+        <!--</table>-->
+
+        <table tableName="Mer_Company_tb" domainObjectName="CompanyDO" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>
         </table>
 
