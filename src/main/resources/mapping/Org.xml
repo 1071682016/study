@@ -5,7 +5,7 @@
         <result column="Name" jdbcType="VARCHAR" property="name"/>
         <result column="Num" jdbcType="INTEGER" property="num"/>
     </resultMap>
-    <select id="selectOrg" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <select id="selectOrg" resultType="com.zyf.study.dataobject.OrgDO">
         select count(1) num,left(b.Name,2) name
         from dbo.Com_ComplaintMessage_tb a
         left join dbo.Bus_Organization_tb b on a.OrgId = b.OrgId

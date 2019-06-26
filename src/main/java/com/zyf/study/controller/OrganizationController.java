@@ -2,6 +2,7 @@ package com.zyf.study.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.zyf.study.controller.viewObject.OrganizationVO;
+import com.zyf.study.dataobject.OrgDO;
 import com.zyf.study.service.OrganizationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,7 +21,7 @@ public class OrganizationController extends BaseController{
 
     @RequestMapping("/data")
     @ResponseBody
-    public List<JSONObject> selectOrganization(){
+    public List<OrgDO> selectOrganization(){
         return organizationService.selectList();
     }
 }
