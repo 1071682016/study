@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zyf.study.dao.OrganizationDOMapper">
+  <resultMap id="BaseResultMap" type="com.zyf.study.dataobject.OrganizationDO">
+    <id column="OrgId" jdbcType="NVARCHAR" property="orgId" />
+    <result column="Name" jdbcType="NVARCHAR" property="name" />
+    <result column="Image" jdbcType="NVARCHAR" property="image" />
+    <result column="Levels" jdbcType="INTEGER" property="levels" />
+    <result column="OrderNo" jdbcType="INTEGER" property="orderNo" />
+    <result column="AssignType" jdbcType="INTEGER" property="assignType" />
+    <result column="NeedLeaderApprove" jdbcType="INTEGER" property="needLeaderApprove" />
+    <result column="AssigndUserId" jdbcType="NVARCHAR" property="assigndUserId" />
+    <result column="Description" jdbcType="NVARCHAR" property="description" />
+    <result column="CreatedOn" jdbcType="NVARCHAR" property="createdOn" />
+    <result column="CreatedBy" jdbcType="NVARCHAR" property="createdBy" />
+    <result column="ModifiedOn" jdbcType="NVARCHAR" property="modifiedOn" />
+    <result column="ModifiedBy" jdbcType="NVARCHAR" property="modifiedBy" />
+    <result column="SzciaOrgId" jdbcType="NVARCHAR" property="szciaOrgId" />
+    <result column="NewSzaicOrgId" jdbcType="NVARCHAR" property="newSzaicOrgId" />
+    <result column="CcaOrgId" jdbcType="NVARCHAR" property="ccaOrgId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    OrgId, Name, Image, Levels, OrderNo, AssignType, NeedLeaderApprove, AssigndUserId, 
+    Description, CreatedOn, CreatedBy, ModifiedOn, ModifiedBy, SzciaOrgId, NewSzaicOrgId, 
+    CcaOrgId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Bus_Organization_tb
+    where OrgId = #{orgId,jdbcType=NVARCHAR}
+  </select>
+
+  <select id="selectOrganization" parameterType="java.lang.String" resultMap="BaseResultMap">
+   select (SELECT COUNT(1) from dbo.Com_ComplaintMessage_tb) num,count(1) num2,b.Name
+   from dbo.Com_ComplaintMessage_tb a
+   left join dbo.Bus_Organization_tb b on a.OrgId = b.OrgId
+   GROUP BY a.OrgId,b.Name
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from Bus_Organization_tb
+    where OrgId = #{orgId,jdbcType=NVARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zyf.study.dataobject.OrganizationDO">
+    insert into Bus_Organization_tb (OrgId, Name, Image, 
+      Levels, OrderNo, AssignType, 
+      NeedLeaderApprove, AssigndUserId, Description, 
+      CreatedOn, CreatedBy, ModifiedOn, 
+      ModifiedBy, SzciaOrgId, NewSzaicOrgId, 
+      CcaOrgId)
+    values (#{orgId,jdbcType=NVARCHAR}, #{name,jdbcType=NVARCHAR}, #{image,jdbcType=NVARCHAR}, 
+      #{levels,jdbcType=INTEGER}, #{orderNo,jdbcType=INTEGER}, #{assignType,jdbcType=INTEGER}, 
+      #{needLeaderApprove,jdbcType=INTEGER}, #{assigndUserId,jdbcType=NVARCHAR}, #{description,jdbcType=NVARCHAR}, 
+      #{createdOn,jdbcType=NVARCHAR}, #{createdBy,jdbcType=NVARCHAR}, #{modifiedOn,jdbcType=NVARCHAR}, 
+      #{modifiedBy,jdbcType=NVARCHAR}, #{szciaOrgId,jdbcType=NVARCHAR}, #{newSzaicOrgId,jdbcType=NVARCHAR}, 
+      #{ccaOrgId,jdbcType=NVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zyf.study.dataobject.OrganizationDO">
+    insert into Bus_Organization_tb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orgId != null">
+        OrgId,
+      </if>
+      <if test="name != null">
+        Name,
+      </if>
+      <if test="image != null">
+        Image,
+      </if>
+      <if test="levels != null">
+        Levels,
+      </if>
+      <if test="orderNo != null">
+        OrderNo,
+      </if>
+      <if test="assignType != null">
+        AssignType,
+      </if>
+      <if test="needLeaderApprove != null">
+        NeedLeaderApprove,
+      </if>
+      <if test="assigndUserId != null">
+        AssigndUserId,
+      </if>
+      <if test="description != null">
+        Description,
+      </if>
+      <if test="createdOn != null">
+        CreatedOn,
+      </if>
+      <if test="createdBy != null">
+        CreatedBy,
+      </if>
+      <if test="modifiedOn != null">
+        ModifiedOn,
+      </if>
+      <if test="modifiedBy != null">
+        ModifiedBy,
+      </if>
+      <if test="szciaOrgId != null">
+        SzciaOrgId,
+      </if>
+      <if test="newSzaicOrgId != null">
+        NewSzaicOrgId,
+      </if>
+      <if test="ccaOrgId != null">
+        CcaOrgId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orgId != null">
+        #{orgId,jdbcType=NVARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=NVARCHAR},
+      </if>
+      <if test="image != null">
+        #{image,jdbcType=NVARCHAR},
+      </if>
+      <if test="levels != null">
+        #{levels,jdbcType=INTEGER},
+      </if>
+      <if test="orderNo != null">
+        #{orderNo,jdbcType=INTEGER},
+      </if>
+      <if test="assignType != null">
+        #{assignType,jdbcType=INTEGER},
+      </if>
+      <if test="needLeaderApprove != null">
+        #{needLeaderApprove,jdbcType=INTEGER},
+      </if>
+      <if test="assigndUserId != null">
+        #{assigndUserId,jdbcType=NVARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=NVARCHAR},
+      </if>
+      <if test="createdOn != null">
+        #{createdOn,jdbcType=NVARCHAR},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=NVARCHAR},
+      </if>
+      <if test="modifiedOn != null">
+        #{modifiedOn,jdbcType=NVARCHAR},
+      </if>
+      <if test="modifiedBy != null">
+        #{modifiedBy,jdbcType=NVARCHAR},
+      </if>
+      <if test="szciaOrgId != null">
+        #{szciaOrgId,jdbcType=NVARCHAR},
+      </if>
+      <if test="newSzaicOrgId != null">
+        #{newSzaicOrgId,jdbcType=NVARCHAR},
+      </if>
+      <if test="ccaOrgId != null">
+        #{ccaOrgId,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zyf.study.dataobject.OrganizationDO">
+    update Bus_Organization_tb
+    <set>
+      <if test="name != null">
+        Name = #{name,jdbcType=NVARCHAR},
+      </if>
+      <if test="image != null">
+        Image = #{image,jdbcType=NVARCHAR},
+      </if>
+      <if test="levels != null">
+        Levels = #{levels,jdbcType=INTEGER},
+      </if>
+      <if test="orderNo != null">
+        OrderNo = #{orderNo,jdbcType=INTEGER},
+      </if>
+      <if test="assignType != null">
+        AssignType = #{assignType,jdbcType=INTEGER},
+      </if>
+      <if test="needLeaderApprove != null">
+        NeedLeaderApprove = #{needLeaderApprove,jdbcType=INTEGER},
+      </if>
+      <if test="assigndUserId != null">
+        AssigndUserId = #{assigndUserId,jdbcType=NVARCHAR},
+      </if>
+      <if test="description != null">
+        Description = #{description,jdbcType=NVARCHAR},
+      </if>
+      <if test="createdOn != null">
+        CreatedOn = #{createdOn,jdbcType=NVARCHAR},
+      </if>
+      <if test="createdBy != null">
+        CreatedBy = #{createdBy,jdbcType=NVARCHAR},
+      </if>
+      <if test="modifiedOn != null">
+        ModifiedOn = #{modifiedOn,jdbcType=NVARCHAR},
+      </if>
+      <if test="modifiedBy != null">
+        ModifiedBy = #{modifiedBy,jdbcType=NVARCHAR},
+      </if>
+      <if test="szciaOrgId != null">
+        SzciaOrgId = #{szciaOrgId,jdbcType=NVARCHAR},
+      </if>
+      <if test="newSzaicOrgId != null">
+        NewSzaicOrgId = #{newSzaicOrgId,jdbcType=NVARCHAR},
+      </if>
+      <if test="ccaOrgId != null">
+        CcaOrgId = #{ccaOrgId,jdbcType=NVARCHAR},
+      </if>
+    </set>
+    where OrgId = #{orgId,jdbcType=NVARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zyf.study.dataobject.OrganizationDO">
+    update Bus_Organization_tb
+    set Name = #{name,jdbcType=NVARCHAR},
+      Image = #{image,jdbcType=NVARCHAR},
+      Levels = #{levels,jdbcType=INTEGER},
+      OrderNo = #{orderNo,jdbcType=INTEGER},
+      AssignType = #{assignType,jdbcType=INTEGER},
+      NeedLeaderApprove = #{needLeaderApprove,jdbcType=INTEGER},
+      AssigndUserId = #{assigndUserId,jdbcType=NVARCHAR},
+      Description = #{description,jdbcType=NVARCHAR},
+      CreatedOn = #{createdOn,jdbcType=NVARCHAR},
+      CreatedBy = #{createdBy,jdbcType=NVARCHAR},
+      ModifiedOn = #{modifiedOn,jdbcType=NVARCHAR},
+      ModifiedBy = #{modifiedBy,jdbcType=NVARCHAR},
+      SzciaOrgId = #{szciaOrgId,jdbcType=NVARCHAR},
+      NewSzaicOrgId = #{newSzaicOrgId,jdbcType=NVARCHAR},
+      CcaOrgId = #{ccaOrgId,jdbcType=NVARCHAR}
+    where OrgId = #{orgId,jdbcType=NVARCHAR}
+  </update>
+</mapper>
