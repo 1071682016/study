@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zyf.study.dao.CompanyDOMapper">
+  <resultMap id="BaseResultMap" type="com.zyf.study.dataobject.CompanyDO">
+    <id column="CompanyId" jdbcType="NVARCHAR" property="companyId" />
+    <result column="OrgId" jdbcType="NVARCHAR" property="orgId" />
+    <result column="UserId" jdbcType="NVARCHAR" property="userId" />
+    <result column="Company" jdbcType="NVARCHAR" property="company" />
+    <result column="Name" jdbcType="NVARCHAR" property="name" />
+    <result column="RegisterNo" jdbcType="NVARCHAR" property="registerNo" />
+    <result column="Qualification" jdbcType="NVARCHAR" property="qualification" />
+    <result column="FoundTime" jdbcType="NVARCHAR" property="foundTime" />
+    <result column="Address" jdbcType="NVARCHAR" property="address" />
+    <result column="Logo" jdbcType="NVARCHAR" property="logo" />
+    <result column="Introduction" jdbcType="NVARCHAR" property="introduction" />
+    <result column="JoinAssoDate" jdbcType="NVARCHAR" property="joinAssoDate" />
+    <result column="AssoPosition" jdbcType="NVARCHAR" property="assoPosition" />
+    <result column="EvaluateText" jdbcType="NVARCHAR" property="evaluateText" />
+    <result column="DataIntegrity" jdbcType="DOUBLE" property="dataIntegrity" />
+    <result column="IsAudit" jdbcType="INTEGER" property="isAudit" />
+    <result column="IsDelete" jdbcType="BIT" property="isDelete" />
+    <result column="IsPublic" jdbcType="INTEGER" property="isPublic" />
+    <result column="Registered" jdbcType="INTEGER" property="registered" />
+    <result column="ServicePhone" jdbcType="NVARCHAR" property="servicePhone" />
+    <result column="TradeId" jdbcType="NVARCHAR" property="tradeId" />
+    <result column="Business" jdbcType="NVARCHAR" property="business" />
+    <result column="DistrictId" jdbcType="NVARCHAR" property="districtId" />
+    <result column="ServiceWeb" jdbcType="NVARCHAR" property="serviceWeb" />
+    <result column="LegalUserId" jdbcType="NVARCHAR" property="legalUserId" />
+    <result column="IsCompromise" jdbcType="INTEGER" property="isCompromise" />
+    <result column="IsBatch" jdbcType="INTEGER" property="isBatch" />
+    <result column="RegisteredAddress" jdbcType="NVARCHAR" property="registeredAddress" />
+    <result column="CreateUserId" jdbcType="NVARCHAR" property="createUserId" />
+    <result column="CreateType" jdbcType="INTEGER" property="createType" />
+    <result column="CreatedOn" jdbcType="NVARCHAR" property="createdOn" />
+    <result column="CreatedBy" jdbcType="NVARCHAR" property="createdBy" />
+    <result column="ModifiedOn" jdbcType="NVARCHAR" property="modifiedOn" />
+    <result column="ModifiedBy" jdbcType="NVARCHAR" property="modifiedBy" />
+    <result column="HasEntityBranch" jdbcType="INTEGER" property="hasEntityBranch" />
+    <result column="CanSwitchComplaint" jdbcType="INTEGER" property="canSwitchComplaint" />
+    <result column="Remark" jdbcType="NVARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    CompanyId, OrgId, UserId, Company, Name, RegisterNo, Qualification, FoundTime, Address, 
+    Logo, Introduction, JoinAssoDate, AssoPosition, EvaluateText, DataIntegrity, IsAudit, 
+    IsDelete, IsPublic, Registered, ServicePhone, TradeId, Business, DistrictId, ServiceWeb, 
+    LegalUserId, IsCompromise, IsBatch, RegisteredAddress, CreateUserId, CreateType, 
+    CreatedOn, CreatedBy, ModifiedOn, ModifiedBy, HasEntityBranch, CanSwitchComplaint, 
+    Remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Mer_Company_tb
+    where CompanyId = #{companyId,jdbcType=NVARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from Mer_Company_tb
+    where CompanyId = #{companyId,jdbcType=NVARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zyf.study.dataobject.CompanyDO">
+    insert into Mer_Company_tb (CompanyId, OrgId, UserId, 
+      Company, Name, RegisterNo, 
+      Qualification, FoundTime, Address, 
+      Logo, Introduction, JoinAssoDate, 
+      AssoPosition, EvaluateText, DataIntegrity, 
+      IsAudit, IsDelete, IsPublic, 
+      Registered, ServicePhone, TradeId, 
+      Business, DistrictId, ServiceWeb, 
+      LegalUserId, IsCompromise, IsBatch, 
+      RegisteredAddress, CreateUserId, CreateType, 
+      CreatedOn, CreatedBy, ModifiedOn, 
+      ModifiedBy, HasEntityBranch, CanSwitchComplaint, 
+      Remark)
+    values (#{companyId,jdbcType=NVARCHAR}, #{orgId,jdbcType=NVARCHAR}, #{userId,jdbcType=NVARCHAR}, 
+      #{company,jdbcType=NVARCHAR}, #{name,jdbcType=NVARCHAR}, #{registerNo,jdbcType=NVARCHAR}, 
+      #{qualification,jdbcType=NVARCHAR}, #{foundTime,jdbcType=NVARCHAR}, #{address,jdbcType=NVARCHAR}, 
+      #{logo,jdbcType=NVARCHAR}, #{introduction,jdbcType=NVARCHAR}, #{joinAssoDate,jdbcType=NVARCHAR}, 
+      #{assoPosition,jdbcType=NVARCHAR}, #{evaluateText,jdbcType=NVARCHAR}, #{dataIntegrity,jdbcType=DOUBLE}, 
+      #{isAudit,jdbcType=INTEGER}, #{isDelete,jdbcType=BIT}, #{isPublic,jdbcType=INTEGER}, 
+      #{registered,jdbcType=INTEGER}, #{servicePhone,jdbcType=NVARCHAR}, #{tradeId,jdbcType=NVARCHAR}, 
+      #{business,jdbcType=NVARCHAR}, #{districtId,jdbcType=NVARCHAR}, #{serviceWeb,jdbcType=NVARCHAR}, 
+      #{legalUserId,jdbcType=NVARCHAR}, #{isCompromise,jdbcType=INTEGER}, #{isBatch,jdbcType=INTEGER}, 
+      #{registeredAddress,jdbcType=NVARCHAR}, #{createUserId,jdbcType=NVARCHAR}, #{createType,jdbcType=INTEGER}, 
+      #{createdOn,jdbcType=NVARCHAR}, #{createdBy,jdbcType=NVARCHAR}, #{modifiedOn,jdbcType=NVARCHAR}, 
+      #{modifiedBy,jdbcType=NVARCHAR}, #{hasEntityBranch,jdbcType=INTEGER}, #{canSwitchComplaint,jdbcType=INTEGER}, 
+      #{remark,jdbcType=NVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zyf.study.dataobject.CompanyDO">
+    insert into Mer_Company_tb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="companyId != null">
+        CompanyId,
+      </if>
+      <if test="orgId != null">
+        OrgId,
+      </if>
+      <if test="userId != null">
+        UserId,
+      </if>
+      <if test="company != null">
+        Company,
+      </if>
+      <if test="name != null">
+        Name,
+      </if>
+      <if test="registerNo != null">
+        RegisterNo,
+      </if>
+      <if test="qualification != null">
+        Qualification,
+      </if>
+      <if test="foundTime != null">
+        FoundTime,
+      </if>
+      <if test="address != null">
+        Address,
+      </if>
+      <if test="logo != null">
+        Logo,
+      </if>
+      <if test="introduction != null">
+        Introduction,
+      </if>
+      <if test="joinAssoDate != null">
+        JoinAssoDate,
+      </if>
+      <if test="assoPosition != null">
+        AssoPosition,
+      </if>
+      <if test="evaluateText != null">
+        EvaluateText,
+      </if>
+      <if test="dataIntegrity != null">
+        DataIntegrity,
+      </if>
+      <if test="isAudit != null">
+        IsAudit,
+      </if>
+      <if test="isDelete != null">
+        IsDelete,
+      </if>
+      <if test="isPublic != null">
+        IsPublic,
+      </if>
+      <if test="registered != null">
+        Registered,
+      </if>
+      <if test="servicePhone != null">
+        ServicePhone,
+      </if>
+      <if test="tradeId != null">
+        TradeId,
+      </if>
+      <if test="business != null">
+        Business,
+      </if>
+      <if test="districtId != null">
+        DistrictId,
+      </if>
+      <if test="serviceWeb != null">
+        ServiceWeb,
+      </if>
+      <if test="legalUserId != null">
+        LegalUserId,
+      </if>
+      <if test="isCompromise != null">
+        IsCompromise,
+      </if>
+      <if test="isBatch != null">
+        IsBatch,
+      </if>
+      <if test="registeredAddress != null">
+        RegisteredAddress,
+      </if>
+      <if test="createUserId != null">
+        CreateUserId,
+      </if>
+      <if test="createType != null">
+        CreateType,
+      </if>
+      <if test="createdOn != null">
+        CreatedOn,
+      </if>
+      <if test="createdBy != null">
+        CreatedBy,
+      </if>
+      <if test="modifiedOn != null">
+        ModifiedOn,
+      </if>
+      <if test="modifiedBy != null">
+        ModifiedBy,
+      </if>
+      <if test="hasEntityBranch != null">
+        HasEntityBranch,
+      </if>
+      <if test="canSwitchComplaint != null">
+        CanSwitchComplaint,
+      </if>
+      <if test="remark != null">
+        Remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="companyId != null">
+        #{companyId,jdbcType=NVARCHAR},
+      </if>
+      <if test="orgId != null">
+        #{orgId,jdbcType=NVARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=NVARCHAR},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=NVARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=NVARCHAR},
+      </if>
+      <if test="registerNo != null">
+        #{registerNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="qualification != null">
+        #{qualification,jdbcType=NVARCHAR},
+      </if>
+      <if test="foundTime != null">
+        #{foundTime,jdbcType=NVARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=NVARCHAR},
+      </if>
+      <if test="logo != null">
+        #{logo,jdbcType=NVARCHAR},
+      </if>
+      <if test="introduction != null">
+        #{introduction,jdbcType=NVARCHAR},
+      </if>
+      <if test="joinAssoDate != null">
+        #{joinAssoDate,jdbcType=NVARCHAR},
+      </if>
+      <if test="assoPosition != null">
+        #{assoPosition,jdbcType=NVARCHAR},
+      </if>
+      <if test="evaluateText != null">
+        #{evaluateText,jdbcType=NVARCHAR},
+      </if>
+      <if test="dataIntegrity != null">
+        #{dataIntegrity,jdbcType=DOUBLE},
+      </if>
+      <if test="isAudit != null">
+        #{isAudit,jdbcType=INTEGER},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="isPublic != null">
+        #{isPublic,jdbcType=INTEGER},
+      </if>
+      <if test="registered != null">
+        #{registered,jdbcType=INTEGER},
+      </if>
+      <if test="servicePhone != null">
+        #{servicePhone,jdbcType=NVARCHAR},
+      </if>
+      <if test="tradeId != null">
+        #{tradeId,jdbcType=NVARCHAR},
+      </if>
+      <if test="business != null">
+        #{business,jdbcType=NVARCHAR},
+      </if>
+      <if test="districtId != null">
+        #{districtId,jdbcType=NVARCHAR},
+      </if>
+      <if test="serviceWeb != null">
+        #{serviceWeb,jdbcType=NVARCHAR},
+      </if>
+      <if test="legalUserId != null">
+        #{legalUserId,jdbcType=NVARCHAR},
+      </if>
+      <if test="isCompromise != null">
+        #{isCompromise,jdbcType=INTEGER},
+      </if>
+      <if test="isBatch != null">
+        #{isBatch,jdbcType=INTEGER},
+      </if>
+      <if test="registeredAddress != null">
+        #{registeredAddress,jdbcType=NVARCHAR},
+      </if>
+      <if test="createUserId != null">
+        #{createUserId,jdbcType=NVARCHAR},
+      </if>
+      <if test="createType != null">
+        #{createType,jdbcType=INTEGER},
+      </if>
+      <if test="createdOn != null">
+        #{createdOn,jdbcType=NVARCHAR},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=NVARCHAR},
+      </if>
+      <if test="modifiedOn != null">
+        #{modifiedOn,jdbcType=NVARCHAR},
+      </if>
+      <if test="modifiedBy != null">
+        #{modifiedBy,jdbcType=NVARCHAR},
+      </if>
+      <if test="hasEntityBranch != null">
+        #{hasEntityBranch,jdbcType=INTEGER},
+      </if>
+      <if test="canSwitchComplaint != null">
+        #{canSwitchComplaint,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zyf.study.dataobject.CompanyDO">
+    update Mer_Company_tb
+    <set>
+      <if test="orgId != null">
+        OrgId = #{orgId,jdbcType=NVARCHAR},
+      </if>
+      <if test="userId != null">
+        UserId = #{userId,jdbcType=NVARCHAR},
+      </if>
+      <if test="company != null">
+        Company = #{company,jdbcType=NVARCHAR},
+      </if>
+      <if test="name != null">
+        Name = #{name,jdbcType=NVARCHAR},
+      </if>
+      <if test="registerNo != null">
+        RegisterNo = #{registerNo,jdbcType=NVARCHAR},
+      </if>
+      <if test="qualification != null">
+        Qualification = #{qualification,jdbcType=NVARCHAR},
+      </if>
+      <if test="foundTime != null">
+        FoundTime = #{foundTime,jdbcType=NVARCHAR},
+      </if>
+      <if test="address != null">
+        Address = #{address,jdbcType=NVARCHAR},
+      </if>
+      <if test="logo != null">
+        Logo = #{logo,jdbcType=NVARCHAR},
+      </if>
+      <if test="introduction != null">
+        Introduction = #{introduction,jdbcType=NVARCHAR},
+      </if>
+      <if test="joinAssoDate != null">
+        JoinAssoDate = #{joinAssoDate,jdbcType=NVARCHAR},
+      </if>
+      <if test="assoPosition != null">
+        AssoPosition = #{assoPosition,jdbcType=NVARCHAR},
+      </if>
+      <if test="evaluateText != null">
+        EvaluateText = #{evaluateText,jdbcType=NVARCHAR},
+      </if>
+      <if test="dataIntegrity != null">
+        DataIntegrity = #{dataIntegrity,jdbcType=DOUBLE},
+      </if>
+      <if test="isAudit != null">
+        IsAudit = #{isAudit,jdbcType=INTEGER},
+      </if>
+      <if test="isDelete != null">
+        IsDelete = #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="isPublic != null">
+        IsPublic = #{isPublic,jdbcType=INTEGER},
+      </if>
+      <if test="registered != null">
+        Registered = #{registered,jdbcType=INTEGER},
+      </if>
+      <if test="servicePhone != null">
+        ServicePhone = #{servicePhone,jdbcType=NVARCHAR},
+      </if>
+      <if test="tradeId != null">
+        TradeId = #{tradeId,jdbcType=NVARCHAR},
+      </if>
+      <if test="business != null">
+        Business = #{business,jdbcType=NVARCHAR},
+      </if>
+      <if test="districtId != null">
+        DistrictId = #{districtId,jdbcType=NVARCHAR},
+      </if>
+      <if test="serviceWeb != null">
+        ServiceWeb = #{serviceWeb,jdbcType=NVARCHAR},
+      </if>
+      <if test="legalUserId != null">
+        LegalUserId = #{legalUserId,jdbcType=NVARCHAR},
+      </if>
+      <if test="isCompromise != null">
+        IsCompromise = #{isCompromise,jdbcType=INTEGER},
+      </if>
+      <if test="isBatch != null">
+        IsBatch = #{isBatch,jdbcType=INTEGER},
+      </if>
+      <if test="registeredAddress != null">
+        RegisteredAddress = #{registeredAddress,jdbcType=NVARCHAR},
+      </if>
+      <if test="createUserId != null">
+        CreateUserId = #{createUserId,jdbcType=NVARCHAR},
+      </if>
+      <if test="createType != null">
+        CreateType = #{createType,jdbcType=INTEGER},
+      </if>
+      <if test="createdOn != null">
+        CreatedOn = #{createdOn,jdbcType=NVARCHAR},
+      </if>
+      <if test="createdBy != null">
+        CreatedBy = #{createdBy,jdbcType=NVARCHAR},
+      </if>
+      <if test="modifiedOn != null">
+        ModifiedOn = #{modifiedOn,jdbcType=NVARCHAR},
+      </if>
+      <if test="modifiedBy != null">
+        ModifiedBy = #{modifiedBy,jdbcType=NVARCHAR},
+      </if>
+      <if test="hasEntityBranch != null">
+        HasEntityBranch = #{hasEntityBranch,jdbcType=INTEGER},
+      </if>
+      <if test="canSwitchComplaint != null">
+        CanSwitchComplaint = #{canSwitchComplaint,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        Remark = #{remark,jdbcType=NVARCHAR},
+      </if>
+    </set>
+    where CompanyId = #{companyId,jdbcType=NVARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zyf.study.dataobject.CompanyDO">
+    update Mer_Company_tb
+    set OrgId = #{orgId,jdbcType=NVARCHAR},
+      UserId = #{userId,jdbcType=NVARCHAR},
+      Company = #{company,jdbcType=NVARCHAR},
+      Name = #{name,jdbcType=NVARCHAR},
+      RegisterNo = #{registerNo,jdbcType=NVARCHAR},
+      Qualification = #{qualification,jdbcType=NVARCHAR},
+      FoundTime = #{foundTime,jdbcType=NVARCHAR},
+      Address = #{address,jdbcType=NVARCHAR},
+      Logo = #{logo,jdbcType=NVARCHAR},
+      Introduction = #{introduction,jdbcType=NVARCHAR},
+      JoinAssoDate = #{joinAssoDate,jdbcType=NVARCHAR},
+      AssoPosition = #{assoPosition,jdbcType=NVARCHAR},
+      EvaluateText = #{evaluateText,jdbcType=NVARCHAR},
+      DataIntegrity = #{dataIntegrity,jdbcType=DOUBLE},
+      IsAudit = #{isAudit,jdbcType=INTEGER},
+      IsDelete = #{isDelete,jdbcType=BIT},
+      IsPublic = #{isPublic,jdbcType=INTEGER},
+      Registered = #{registered,jdbcType=INTEGER},
+      ServicePhone = #{servicePhone,jdbcType=NVARCHAR},
+      TradeId = #{tradeId,jdbcType=NVARCHAR},
+      Business = #{business,jdbcType=NVARCHAR},
+      DistrictId = #{districtId,jdbcType=NVARCHAR},
+      ServiceWeb = #{serviceWeb,jdbcType=NVARCHAR},
+      LegalUserId = #{legalUserId,jdbcType=NVARCHAR},
+      IsCompromise = #{isCompromise,jdbcType=INTEGER},
+      IsBatch = #{isBatch,jdbcType=INTEGER},
+      RegisteredAddress = #{registeredAddress,jdbcType=NVARCHAR},
+      CreateUserId = #{createUserId,jdbcType=NVARCHAR},
+      CreateType = #{createType,jdbcType=INTEGER},
+      CreatedOn = #{createdOn,jdbcType=NVARCHAR},
+      CreatedBy = #{createdBy,jdbcType=NVARCHAR},
+      ModifiedOn = #{modifiedOn,jdbcType=NVARCHAR},
+      ModifiedBy = #{modifiedBy,jdbcType=NVARCHAR},
+      HasEntityBranch = #{hasEntityBranch,jdbcType=INTEGER},
+      CanSwitchComplaint = #{canSwitchComplaint,jdbcType=INTEGER},
+      Remark = #{remark,jdbcType=NVARCHAR}
+    where CompanyId = #{companyId,jdbcType=NVARCHAR}
+  </update>
+</mapper>
