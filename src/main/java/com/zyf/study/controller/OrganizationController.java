@@ -19,9 +19,13 @@ public class OrganizationController extends BaseController{
     @Autowired
     private OrganizationService organizationService;
 
+    /**
+     * 查询深圳不同区的投诉数量
+     * @return
+     */
     @RequestMapping("/data")
     @ResponseBody
-    public List<OrgDO> selectOrganization(){
+    public List<OrganizationVO> selectOrganization(){
         return organizationService.selectList();
     }
 }

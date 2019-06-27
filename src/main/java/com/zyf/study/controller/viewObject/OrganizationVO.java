@@ -10,13 +10,6 @@ public class OrganizationVO {
         this.x = x;
     }
 
-    public String getY() {
-        return y;
-    }
-
-    public void setY(String y) {
-        this.y = y;
-    }
 
     public int getS() {
         return s;
@@ -28,8 +21,15 @@ public class OrganizationVO {
 
     private String x;
 
-    private String y;
+    private int y;
 
     private int s;
 
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
 }
