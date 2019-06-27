@@ -1,6 +1,6 @@
 package com.zyf.study.dataobject;
 
-public class OrgDO {
+public class OrgDO   {
 
     private String name;
 

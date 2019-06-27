@@ -93,7 +93,7 @@
                <!--enableSelectByExample="false" selectByExampleQueryId="false" >-->
             <!--<property name="useActualColumnNames" value="true"/>-->
         <!--</table>-->
-        <table tableName="Bus_Organization_tb" domainObjectName="OrganizationDO" enableCountByExample="false"
+        <table tableName="Com_ComplaintProperty_tb" domainObjectName="ComplaintPropertyDO" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false" >
             <property name="useActualColumnNames" value="true"/>

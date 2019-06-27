@@ -1,7 +1,10 @@
 package com.zyf.study.service;
 
 import com.zyf.study.error.BusinessException;
+import com.zyf.study.service.model.ComPropertyModel;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,6 +18,8 @@ import org.springframework.stereotype.Service;
 public interface ComplaintMessageService {
 
     int getAnnualComplaintNumber(String createdOn) throws BusinessException;
+
+    List<ComPropertyModel> getComPropertyNumber(String createdOn) throws BusinessException;
 
 
 

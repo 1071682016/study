@@ -1,7 +1,10 @@
 package com.zyf.study.dao;
 
 import com.zyf.study.dataobject.ComplaintMessageDO;
+import com.zyf.study.service.model.ComPropertyModel;
 import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 public interface ComplaintMessageDOMapper {
     int deleteByPrimaryKey(String complaintId);
@@ -17,5 +20,7 @@ public interface ComplaintMessageDOMapper {
     int updateByPrimaryKey(ComplaintMessageDO record);
 
     int selectComplaintNumber(String createdOn);
+
+    List<ComPropertyModel> selectComPropertyNumber(String createdOn);
 
 }

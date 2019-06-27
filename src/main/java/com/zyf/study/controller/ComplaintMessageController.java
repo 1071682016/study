@@ -3,6 +3,7 @@ package com.zyf.study.controller;
 import com.zyf.study.controller.viewObject.ObjectVO;
 import com.zyf.study.error.BusinessException;
 import com.zyf.study.service.ComplaintMessageService;
+import com.zyf.study.service.model.ComPropertyModel;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,18 +28,28 @@ public class ComplaintMessageController extends BaseController {
     @Autowired
     ComplaintMessageService complaintMessageService;
 
+
     @RequestMapping("/getAnnualComplaintNumber")
     @ResponseBody
-    public List<Object> getAnnualComplaintNumber() throws BusinessException {
+    public List<ObjectVO> getAnnualComplaintNumber() throws BusinessException {
         DateTime dateTime = new DateTime();
-        String first= dateTime.dayOfYear().withMinimumValue().toString("yyyyMMdd");
-        List<Object> data = new ArrayList<>();
+        String first = dateTime.dayOfYear().withMinimumValue().toString("yyyyMMdd");
+        List<ObjectVO> data = new ArrayList<>();
         int complaintNumber = complaintMessageService.getAnnualComplaintNumber(first);
         ObjectVO objectVO = new ObjectVO();
         objectVO.setName("全年实时投诉量");
         objectVO.setValue(complaintNumber);
         data.add(objectVO);
         return data;
+    }
+
+    @RequestMapping("/getComPropertyNumber")
+    @ResponseBody
+    public List<ComPropertyModel> getComPropertyNumber() throws BusinessException {
+        DateTime dateTime = new DateTime();
+        String first = dateTime.toString("yyyy");
+        List<ComPropertyModel> comPropertyNumber = complaintMessageService.getComPropertyNumber(first);
+        return comPropertyNumber;
     }
 
 

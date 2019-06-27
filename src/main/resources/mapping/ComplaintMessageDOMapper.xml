@@ -63,6 +63,10 @@
     <result column="IsTop" jdbcType="INTEGER" property="isTop" />
     <result column="IsReadCount" jdbcType="INTEGER" property="isReadCount" />
   </resultMap>
+  <resultMap type="com.zyf.study.dataobject.ComPropertyDO" id="BaseResultMapVo" extends="BaseResultMap">
+    <result column="num" jdbcType="INTEGER" property="num"></result>
+    <result column="name" jdbcType="NVARCHAR" property="name"></result>
+  </resultMap>
   <sql id="Base_Column_List">
     ComplaintId, SzciaOriginId, SzciaExchangeStatus, UserId, OrgId, OrgUserId, CompanyId, 
     BranchId, ComplaintRegisterNo, ReceiveType, DistrictId, ComplaintPropertyId, ComplaintTypeId, 
@@ -79,6 +83,13 @@
     <include refid="Base_Column_List" />
     from Com_ComplaintMessage_tb
     where ComplaintId = #{complaintId,jdbcType=NVARCHAR}
+  </select>
+
+  <select id="selectComPropertyNumber" parameterType="java.lang.String" resultMap="BaseResultMapVo">
+   SELECT count(1) num,a.name from dbo.Com_ComplaintProperty_tb a
+    left join dbo.Com_ComplaintMessage_tb b on a.ComplaintPropertyId = b.ComplaintPropertyId
+    where  year(b.CreatedOn)=#{createdOn,jdbcType=NVARCHAR}
+    GROUP BY a.ComplaintPropertyId,a.Name
   </select>
 
   <select id="selectComplaintNumber" parameterType="java.lang.String" resultType="Integer">
